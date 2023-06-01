@@ -20,8 +20,10 @@ def infer_audio(text,speaker_id):
         n_speakers=hps.data.n_speakers,
         **hps.model)
     _ = net_g.eval()
-
-    _ = utils.load_checkpoint("myapp\modules\\vits\pretrained_model\G_4000_42_Einstein.pth", net_g, None)
+    try:
+        _ = utils.load_checkpoint("myapp\modules\\vits\pretrained_models\G_4000_42_Einstein.pth", net_g, None)
+    except:
+        print("[ERROR]model name is different. Can't load checkpoint.")
     stn_tst = get_text(text, hps)
     with torch.no_grad():
         x_tst = stn_tst.unsqueeze(0)
