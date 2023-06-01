@@ -21,7 +21,7 @@ def infer_audio(text,speaker_id):
         **hps.model)
     _ = net_g.eval()
 
-    _ = utils.load_checkpoint("myapp\modules\vits\pretrained_model\G_4000_42_Einstein.pth", net_g, None)
+    _ = utils.load_checkpoint("myapp\modules\\vits\pretrained_model\G_4000_42_Einstein.pth", net_g, None)
     stn_tst = get_text(text, hps)
     with torch.no_grad():
         x_tst = stn_tst.unsqueeze(0)

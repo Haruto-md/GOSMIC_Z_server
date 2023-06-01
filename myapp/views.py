@@ -12,7 +12,7 @@ class TTSView(APIView):
         # 必要な場合、model_pathの存在をチェックします
         if speaker_id:
             # model_pathが指定されている場合の処理
-            audio_data = infer_audio(input_text, speaker_id)
+            audio_data,sampling_rate = infer_audio(input_text, speaker_id)
         else:
             # model_pathが指定されていない場合の処理
             audio_data, sampling_rate = infer_audio(input_text,42)
