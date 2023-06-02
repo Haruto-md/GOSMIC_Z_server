@@ -11,8 +11,8 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
 REM verifiy if pretrained model exists
-mkdir myapp\modules\vits\pretrained_models
-pushd myapp\modules\vits\pretrained_models
+mkdir pretrained_models
+pushd pretrained_models
 if exist "*.pth" (
     echo .pthファイルが存在します
 ) else (

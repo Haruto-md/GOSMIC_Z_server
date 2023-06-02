@@ -1,0 +1,3855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>TooManyFieldsSent
+          at /myapp/models/Whisper_ChatGPT_TTS/</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background-color:#fff; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; word-break: break-word; }
+    summary { cursor: pointer; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th {
+      padding:1px 6px 1px 3px; background:#fefefe; text-align:left;
+      font-weight:normal; font-size:11px; border:1px solid #ddd;
+    }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 10px 2px 40px; width: auto; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.cause { word-break: break-word; }
+    ul.traceback li.frame { padding-bottom:1em; color:#4f4f4f; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; padding-left: 2px; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#464646; background-color:#dfdfdf; padding: 3px 2px; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands, summary.commands { margin-left: 40px; }
+    div.commands a, summary.commands { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 10px 20px; }
+    #template-not-exist .postmortem-section { margin-bottom: 3px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em; font-weight:normal; }
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+    .append-bottom { margin-bottom: 10px; }
+    .fname { user-select: all; }
+  </style>
+  
+  <script>
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(document.querySelectorAll('ol.pre-context'));
+      hideAll(document.querySelectorAll('ol.post-context'));
+      hideAll(document.querySelectorAll('div.pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.textContent = link.textContent.trim() == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+  </script>
+  
+</head>
+<body>
+<div id="summary">
+  <h1>TooManyFieldsSent
+       at /myapp/models/Whisper_ChatGPT_TTS/</h1>
+  <pre class="exception_value">The number of GET/POST parameters exceeded settings.DATA_UPLOAD_MAX_NUMBER_FIELDS.</pre>
+  <table class="meta">
+
+    <tr>
+      <th>Request Method:</th>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://localhost:8000/myapp/models/Whisper_ChatGPT_TTS/</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>4.2.1</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>TooManyFieldsSent</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>The number of GET/POST parameters exceeded settings.DATA_UPLOAD_MAX_NUMBER_FIELDS.</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td><span class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py</span>, line 521, in __init__</td>
+    </tr>
+
+
+    <tr>
+      <th>Raised during:</th>
+      <td>myapp.views.Whisper_ChatGPT_TTS</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\Scripts\python.exe</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>3.10.4</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>[&#x27;c:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server&#x27;,
+ &#x27;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\python310.zip&#x27;,
+ &#x27;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\DLLs&#x27;,
+ &#x27;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\lib&#x27;,
+ &#x27;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310&#x27;,
+ &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv&#x27;,
+ &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages&#x27;,
+ &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\win32&#x27;,
+ &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\win32\\lib&#x27;,
+ &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\Pythonwin&#x27;]</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Fri, 02 Jun 2023 17:20:48 +0000</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">
+    Switch to copy-and-paste view</a></span>
+  </h2>
+  <div id="browserTraceback">
+    <ul class="traceback">
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py</code>, line 55, in inner
+          
+
+          
+            <div class="context" id="c2122442398208">
+              
+                <ol start="48" class="pre-context" id="pre2122442398208">
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>        return inner</pre></li>
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>        @wraps(get_response)</pre></li>
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>        def inner(request):</pre></li>
+                
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="55" class="context-line">
+                <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='56' class="post-context" id="post2122442398208">
+                  
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>            except Exception as exc:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>            return response</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre>        return inner</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398208', 'post2122442398208')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442398208">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001EE6288EEF0&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\base.py</code>, line 197, in _get_response
+          
+
+          
+            <div class="context" id="c2122442401728">
+              
+                <ol start="190" class="pre-context" id="pre2122442401728">
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>        if response is None:</pre></li>
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>            if iscoroutinefunction(wrapped_callback):</pre></li>
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
+                
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="197" class="context-line">
+                <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='198' class="post-context" id="post2122442401728">
+                  
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>            except Exception as e:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
+                  
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>                if response is None:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>                    raise</pre></li>
+                  
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442401728', 'post2122442401728')"><pre>        # Complain if the view returned None (a common error).</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442401728">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function View.as_view.&lt;locals&gt;.view at 0x000001EE522C8820&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;CsrfViewMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001EE6288EEF0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;asgiref.sync.AsyncToSync object at 0x000001EE2B639E40&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">C:\Users\amate\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py</code>, line 439, in result
+          
+
+          
+            <div class="context" id="c2122442397056">
+              
+                <ol start="432" class="pre-context" id="pre2122442397056">
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>            Exception: If the call raised then that exception will be raised.</pre></li>
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>        try:</pre></li>
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>            with self._condition:</pre></li>
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</pre></li>
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                    raise CancelledError()</pre></li>
+                
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                elif self._state == FINISHED:</pre></li>
+                
+                </ol>
+              
+              <ol start="439" class="context-line">
+                <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                    return self.__get_result()</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='440' class="post-context" id="post2122442397056">
+                  
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                self._condition.wait(timeout)</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                    raise CancelledError()</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397056', 'post2122442397056')"><pre>                elif self._state == FINISHED:</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442397056">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>timeout</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">C:\Users\amate\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py</code>, line 391, in __get_result
+          
+
+          
+            <div class="context" id="c2122708671296">
+              
+                <ol start="384" class="pre-context" id="pre2122708671296">
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>        &quot;&quot;&quot;Return True of the future was cancelled or finished executing.&quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>        with self._condition:</pre></li>
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>            return self._state in [CANCELLED, CANCELLED_AND_NOTIFIED, FINISHED]</pre></li>
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>    def __get_result(self):</pre></li>
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>        if self._exception:</pre></li>
+                
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="391" class="context-line">
+                <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>                raise self._exception</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='392' class="post-context" id="post2122708671296">
+                  
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>            finally:</pre></li>
+                  
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>                # Break a reference cycle with the exception in self._exception</pre></li>
+                  
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>                self = None</pre></li>
+                  
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>        else:</pre></li>
+                  
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre>            return self._result</pre></li>
+                  
+                  <li onclick="toggle('pre2122708671296', 'post2122708671296')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122708671296">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\decorators\csrf.py</code>, line 56, in wrapper_view
+          
+
+          
+            <div class="context" id="c2122442396096">
+              
+                <ol start="49" class="pre-context" id="pre2122442396096">
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>def csrf_exempt(view_func):</pre></li>
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    &quot;&quot;&quot;Mark a view function as being exempt from the CSRF view protection.&quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    # view_func.csrf_exempt = True would also work, but decorators are nicer</pre></li>
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    # if they don&#x27;t have side effects, so return a new function.</pre></li>
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    @wraps(view_func)</pre></li>
+                
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    def wrapper_view(*args, **kwargs):</pre></li>
+                
+                </ol>
+              
+              <ol start="56" class="context-line">
+                <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>        return view_func(*args, **kwargs)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='57' class="post-context" id="post2122442396096">
+                  
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    wrapper_view.csrf_exempt = True</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396096', 'post2122442396096')"><pre>    return wrapper_view</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442396096">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>(&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;,)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>view_func</td>
+                    <td class="code"><pre>&lt;function View.as_view.&lt;locals&gt;.view at 0x000001EE522C88B0&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\generic\base.py</code>, line 104, in view
+          
+
+          
+            <div class="context" id="c2122442393472">
+              
+                <ol start="97" class="pre-context" id="pre2122442393472">
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>            self = cls(**initkwargs)</pre></li>
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>            self.setup(request, *args, **kwargs)</pre></li>
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>            if not hasattr(self, &quot;request&quot;):</pre></li>
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>                raise AttributeError(</pre></li>
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>                    &quot;%s instance has no &#x27;request&#x27; attribute. Did you override &quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>                    &quot;setup() and forget to call super()?&quot; % cls.__name__</pre></li>
+                
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>                )</pre></li>
+                
+                </ol>
+              
+              <ol start="104" class="context-line">
+                <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>            return self.dispatch(request, *args, **kwargs)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='105' class="post-context" id="post2122442393472">
+                  
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>        view.view_class = cls</pre></li>
+                  
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>        view.view_initkwargs = initkwargs</pre></li>
+                  
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>        # __name__ and __qualname__ are intentionally left unchanged as</pre></li>
+                  
+                  <li onclick="toggle('pre2122442393472', 'post2122442393472')"><pre>        # view_class should be used to robustly determine the name of the view</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442393472">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class &#x27;myapp.views.Whisper_ChatGPT_TTS&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>initkwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;myapp.views.Whisper_ChatGPT_TTS object at 0x000001EE2B63A830&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\rest_framework\views.py</code>, line 511, in dispatch
+          
+
+          
+            <div class="context" id="c2122442396288">
+              
+                <ol start="504" class="pre-context" id="pre2122442396288">
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>                handler = self.http_method_not_allowed</pre></li>
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>            response = handler(request, *args, **kwargs)</pre></li>
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>        except Exception as exc:</pre></li>
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>            response = self.handle_exception(exc)</pre></li>
+                
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre></pre></li>
+                
+                </ol>
+              
+              <ol start="511" class="context-line">
+                <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>        self.response = self.finalize_response(request, response, *args, **kwargs)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='512' class="post-context" id="post2122442396288">
+                  
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>        return self.response</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>    def options(self, request, *args, **kwargs):</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>        &quot;&quot;&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>        Handler method for HTTP &#x27;OPTIONS&#x27; request.</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396288', 'post2122442396288')"><pre>        &quot;&quot;&quot;</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442396288">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>handler</td>
+                    <td class="code"><pre>&lt;bound method Whisper_ChatGPT_TTS.post of &lt;myapp.views.Whisper_ChatGPT_TTS object at 0x000001EE2B63A830&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;rest_framework.request.Request: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>&lt;coroutine object Whisper_ChatGPT_TTS.post at 0x000001EE2B6E8270&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;myapp.views.Whisper_ChatGPT_TTS object at 0x000001EE2B63A830&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\rest_framework\views.py</code>, line 423, in finalize_response
+          
+
+          
+            <div class="context" id="c2122442392768">
+              
+                <ol start="416" class="pre-context" id="pre2122442392768">
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        self.check_throttles(request)</pre></li>
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>    def finalize_response(self, request, response, *args, **kwargs):</pre></li>
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        Returns the final response object.</pre></li>
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        # Make the error obvious if a proper response is not returned</pre></li>
+                
+                </ol>
+              
+              <ol start="423" class="context-line">
+                <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        assert isinstance(response, HttpResponseBase), (</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='424' class="post-context" id="post2122442392768">
+                  
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>            &#x27;Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` &#x27;</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>            &#x27;to be returned from the view, but received a `%s`&#x27;</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>            % type(response)</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        )</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442392768', 'post2122442392768')"><pre>        if isinstance(response, Response):</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442392768">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;rest_framework.request.Request: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>&lt;coroutine object Whisper_ChatGPT_TTS.post at 0x000001EE2B6E8270&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;myapp.views.Whisper_ChatGPT_TTS object at 0x000001EE2B63A830&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+          <li class="cause"><h3>
+          
+            During handling of the above exception (Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;coroutine&#x27;&gt;`), another exception occurred:
+          
+        </h3></li>
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py</code>, line 514, in __init__
+          
+
+          
+            <div class="context" id="c2122442398848">
+              
+                <ol start="507" class="pre-context" id="pre2122442398848">
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            # query_string normally contains URL-encoded data, a subset of ASCII.</pre></li>
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            try:</pre></li>
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>                query_string = query_string.decode(self.encoding)</pre></li>
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            except UnicodeDecodeError:</pre></li>
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>                # ... but some user agents are misbehaving :-(</pre></li>
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>                query_string = query_string.decode(&quot;iso-8859-1&quot;)</pre></li>
+                
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>        try:</pre></li>
+                
+                </ol>
+              
+              <ol start="514" class="context-line">
+                <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            for key, value in parse_qsl(query_string, **parse_qsl_kwargs):</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='515' class="post-context" id="post2122442398848">
+                  
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>                self.appendlist(key, value)</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>        except ValueError as e:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            # ValueError can also be raised if the strict_parsing argument to</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            # parse_qsl() is True. As that is not used by Django, assume that</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            # the exception was raised by exceeding the value of max_num_fields</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398848', 'post2122442398848')"><pre>            # instead of fragile checks of exception message strings.</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442398848">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>__class__</td>
+                    <td class="code"><pre>&lt;class &#x27;django.http.request.QueryDict&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>encoding</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>mutable</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_qsl_kwargs</td>
+                    <td class="code"><pre>{&#x27;encoding&#x27;: &#x27;utf-8&#x27;, &#x27;keep_blank_values&#x27;: True, &#x27;max_num_fields&#x27;: 2000}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>query_string</td>
+                    <td class="code"><pre>&#x27;audio_data=-1.3672042e-09&amp;audio_data=-3.124414e-09&amp;audio_data=6.0818056e-10&amp;audio_data=1.2899537e-09&amp;audio_data=-1.2020671e-09&amp;audio_data=-9.356994e-10&amp;audio_data=-9.71481e-10&amp;audio_data=-8.5771834e-10&amp;audio_data=-5.8571564e-10&amp;audio_data=-8.400681e-10&amp;audio_data=-9.838548e-10&amp;audio_data=-8.3025414e-10&amp;audio_data=-9.688725e-10&amp;audio_data=-7.815423e-10&amp;audio_data=-8.3753104e-10&amp;audio_data=-9.346727e-10&amp;audio_data=-9.2010966e-10&amp;audio_data=-8.993724e-10&amp;audio_data=-8.659174e-10&amp;audio_data=-7.7954426e-10&amp;audio_data=-9.808784e-10&amp;audio_data=-9.1579505e-10&amp;audio_data=2.0729857e-11&amp;audio_data=-4.4053677e-10&amp;audio_data=8.93104e-10&amp;audio_data=-2.9146657e-10&amp;audio_data=1.1242032e-11&amp;audio_data=-1.0472316e-09&amp;audio_data=4.3696133e-10&amp;audio_data=-4.0718612e-10&amp;audio_data=4.1193363e-10&amp;audio_data=-4.537016e-10&amp;audio_data=6.946636e-10&amp;audio_data=-7.8431567e-10&amp;audio_data=3.611669e-11&amp;audio_data=-4.2404213e-10&amp;audio_data=1.08842164e-10&amp;audio_data=-7.5930856e-10&amp;audio_data=-4.967755e-10&amp;audio_data=-8.7424595e-10&amp;audio_data=-3.47316e-10&amp;audio_data=-3.245286e-10&amp;audio_data=-2.6206523e-10&amp;audio_data=-3.10592e-10&amp;audio_data=-1.459015e-10&amp;audio_data=-1.3206825e-11&amp;audio_data=-5.354339e-12&amp;audio_data=-4.561447e-10&amp;audio_data=1.3729509e-10&amp;audio_data=-2.5854877e-10&amp;audio_data=-1.12600464e-10&amp;audio_data=5.4214766e-10&amp;audio_data=8.7665364e-10&amp;audio_data=1.2025951e-09&amp;audio_data=4.8332705e-10&amp;audio_data=1.2042879e-09&amp;audio_data=6.067038e-10&amp;audio_data=5.5349725e-10&amp;audio_data=4.679419e-10&amp;audio_data=1.3005423e-09&amp;audio_data=9.170037e-10&amp;audio_data=7.4311696e-10&amp;audio_data=9.541837e-10&amp;audio_data=9.396559e-10&amp;audio_data=8.705484e-10&amp;audio_data=8.1933105e-10&amp;audio_data=7.970068e-10&amp;audio_data=8.362375e-10&amp;audio_data=4.482814e-10&amp;audio_data=4.2716858e-10&amp;audio_data=1.9564037e-10&amp;audio_data=6.1765765e-10&amp;audio_data=4.0936599e-10&amp;audio_data=4.0682793e-10&amp;audio_data=1.575351e-10&amp;audio_data=4.4523946e-10&amp;audio_data=4.974925e-10&amp;audio_data=4.3808265e-10&amp;audio_data=2.6999827e-10&amp;audio_data=3.7911663e-11&amp;audio_data=-8.378005e-11&amp;audio_data=-3.4640504e-10&amp;audio_data=-5.8061644e-10&amp;audio_data=-8.190136e-11&amp;audio_data=2.015527e-10&amp;audio_data=-2.010028e-10&amp;audio_data=-4.1578438e-10&amp;audio_data=2.8494854e-10&amp;audio_data=2.207473e-10&amp;audio_data=-6.758303e-11&amp;audio_data=-3.0467337e-10&amp;audio_data=1.2713364e-10&amp;audio_data=-3.478022e-10&amp;audio_data=-1.0052257e-09&amp;audio_data=-5.004752e-10&amp;audio_data=-3.5778183e-10&amp;audio_data=-3.5437517e-10&amp;audio_data=-4.6508716e-10&amp;audio_data=-4.010455e-10&amp;audio_data=-3.424954e-10&amp;audio_data=-8.516251e-10&amp;audio_data=-8.209717e-10&amp;audio_data=-1.2450218e-09&amp;audio_data=-1.0269453e-09&amp;audio_data=-1.1235187e-09&amp;audio_data=-1.0906068e-09&amp;audio_data=-9.781415e-10&amp;audio_data=-7.256848e-10&amp;audio_data=-2.1208699e-10&amp;audio_data=-4.6246645e-10&amp;audio_data=-7.8431145e-10&amp;audio_data=-8.10263e-10&amp;audio_data=-8.645192e-10&amp;audio_data=-1.1000225e-09&amp;audio_data=-1.3280159e-09&amp;audio_data=-5.021018e-10&amp;audio_data=-5.512398e-12&amp;audio_data=-7.363933e-10&amp;audio_data=-9.652853e-10&amp;audio_data=-4.9851445e-10&amp;audio_data=-3.781045e-10&amp;audio_data=-7.247685e-10&amp;audio_data=-9.665684e-10&amp;audio_data=-1.8057254e-10&amp;audio_data=-5.73457e-10&amp;audio_data=-1.1212384e-09&amp;audio_data=-1.2463246e-09&amp;audio_data=-7.8815304e-10&amp;audio_data=-4.157349e-10&amp;audio_data=-8.159687e-10&amp;audio_data=-9.0851887e-10&amp;audio_data=-5.401504e-10&amp;audio_data=-6.5331357e-10&amp;audio_data=-8.4939294e-10&amp;audio_data=-1.1742957e-09&amp;audio_data=-8.603149e-10&amp;audio_data=-7.853575e-10&amp;audio_data=-1.0772803e-09&amp;audio_data=-1.1927006e-09&amp;audio_data=-9.465037e-10&amp;audio_data=-5.5954635e-10&amp;audio_data=-6.5139283e-10&amp;audio_data=-1.2724092e-09&amp;audio_data=-1.1695512e-09&amp;audio_data=-9.648596e-10&amp;audio_data=-1.107255e-09&amp;audio_data=-1.4357361e-09&amp;audio_data=-7.841539e-10&amp;audio_data=-4.3556045e-10&amp;audio_data=-1.0516156e-09&amp;audio_data=-1.6620808e-09&amp;audio_data=-1.0578007e-09&amp;audio_data=-6.8489164e-10&amp;audio_data=-9.855302e-10&amp;audio_data=-1.1461567e-09&amp;audio_data=-5.5759125e-10&amp;audio_data=-6.706198e-10&amp;audio_data=-1.341469e-09&amp;audio_data=-1.3208591e-09&amp;audio_data=-9.1866875e-10&amp;audio_data=-4.3394047e-10&amp;audio_data=-8.2924184e-10&amp;… &lt;trimmed 2825983 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;QueryDict: {}&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">C:\Users\amate\AppData\Local\Programs\Python\Python310\lib\urllib\parse.py</code>, line 755, in parse_qsl
+          
+
+          
+            <div class="context" id="c2122709056704">
+              
+                <ol start="748" class="pre-context" id="pre2122709056704">
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>    # If max_num_fields is defined then check that the number of fields</pre></li>
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>    # is less than max_num_fields. This prevents a memory exhaustion DOS</pre></li>
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>    # attack via post bodies with many fields.</pre></li>
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>    if max_num_fields is not None:</pre></li>
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>        num_fields = 1 + qs.count(separator)</pre></li>
+                
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>        if max_num_fields &lt; num_fields:</pre></li>
+                
+                </ol>
+              
+              <ol start="755" class="context-line">
+                <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>            raise ValueError(&#x27;Max number of fields exceeded&#x27;)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='756' class="post-context" id="post2122709056704">
+                  
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>    r = []</pre></li>
+                  
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>    for name_value in qs.split(separator):</pre></li>
+                  
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>        if not name_value and not strict_parsing:</pre></li>
+                  
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>            continue</pre></li>
+                  
+                  <li onclick="toggle('pre2122709056704', 'post2122709056704')"><pre>        nv = name_value.split(&#x27;=&#x27;, 1)</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122709056704">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>_</td>
+                    <td class="code"><pre>&lt;function _noop at 0x000001EE61C337F0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>_coerce_result</td>
+                    <td class="code"><pre>&lt;function _noop at 0x000001EE61C337F0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>encoding</td>
+                    <td class="code"><pre>&#x27;utf-8&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>errors</td>
+                    <td class="code"><pre>&#x27;replace&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>keep_blank_values</td>
+                    <td class="code"><pre>True</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>max_num_fields</td>
+                    <td class="code"><pre>2000</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>num_fields</td>
+                    <td class="code"><pre>112389</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>qs</td>
+                    <td class="code"><pre>&#x27;audio_data=-1.3672042e-09&amp;audio_data=-3.124414e-09&amp;audio_data=6.0818056e-10&amp;audio_data=1.2899537e-09&amp;audio_data=-1.2020671e-09&amp;audio_data=-9.356994e-10&amp;audio_data=-9.71481e-10&amp;audio_data=-8.5771834e-10&amp;audio_data=-5.8571564e-10&amp;audio_data=-8.400681e-10&amp;audio_data=-9.838548e-10&amp;audio_data=-8.3025414e-10&amp;audio_data=-9.688725e-10&amp;audio_data=-7.815423e-10&amp;audio_data=-8.3753104e-10&amp;audio_data=-9.346727e-10&amp;audio_data=-9.2010966e-10&amp;audio_data=-8.993724e-10&amp;audio_data=-8.659174e-10&amp;audio_data=-7.7954426e-10&amp;audio_data=-9.808784e-10&amp;audio_data=-9.1579505e-10&amp;audio_data=2.0729857e-11&amp;audio_data=-4.4053677e-10&amp;audio_data=8.93104e-10&amp;audio_data=-2.9146657e-10&amp;audio_data=1.1242032e-11&amp;audio_data=-1.0472316e-09&amp;audio_data=4.3696133e-10&amp;audio_data=-4.0718612e-10&amp;audio_data=4.1193363e-10&amp;audio_data=-4.537016e-10&amp;audio_data=6.946636e-10&amp;audio_data=-7.8431567e-10&amp;audio_data=3.611669e-11&amp;audio_data=-4.2404213e-10&amp;audio_data=1.08842164e-10&amp;audio_data=-7.5930856e-10&amp;audio_data=-4.967755e-10&amp;audio_data=-8.7424595e-10&amp;audio_data=-3.47316e-10&amp;audio_data=-3.245286e-10&amp;audio_data=-2.6206523e-10&amp;audio_data=-3.10592e-10&amp;audio_data=-1.459015e-10&amp;audio_data=-1.3206825e-11&amp;audio_data=-5.354339e-12&amp;audio_data=-4.561447e-10&amp;audio_data=1.3729509e-10&amp;audio_data=-2.5854877e-10&amp;audio_data=-1.12600464e-10&amp;audio_data=5.4214766e-10&amp;audio_data=8.7665364e-10&amp;audio_data=1.2025951e-09&amp;audio_data=4.8332705e-10&amp;audio_data=1.2042879e-09&amp;audio_data=6.067038e-10&amp;audio_data=5.5349725e-10&amp;audio_data=4.679419e-10&amp;audio_data=1.3005423e-09&amp;audio_data=9.170037e-10&amp;audio_data=7.4311696e-10&amp;audio_data=9.541837e-10&amp;audio_data=9.396559e-10&amp;audio_data=8.705484e-10&amp;audio_data=8.1933105e-10&amp;audio_data=7.970068e-10&amp;audio_data=8.362375e-10&amp;audio_data=4.482814e-10&amp;audio_data=4.2716858e-10&amp;audio_data=1.9564037e-10&amp;audio_data=6.1765765e-10&amp;audio_data=4.0936599e-10&amp;audio_data=4.0682793e-10&amp;audio_data=1.575351e-10&amp;audio_data=4.4523946e-10&amp;audio_data=4.974925e-10&amp;audio_data=4.3808265e-10&amp;audio_data=2.6999827e-10&amp;audio_data=3.7911663e-11&amp;audio_data=-8.378005e-11&amp;audio_data=-3.4640504e-10&amp;audio_data=-5.8061644e-10&amp;audio_data=-8.190136e-11&amp;audio_data=2.015527e-10&amp;audio_data=-2.010028e-10&amp;audio_data=-4.1578438e-10&amp;audio_data=2.8494854e-10&amp;audio_data=2.207473e-10&amp;audio_data=-6.758303e-11&amp;audio_data=-3.0467337e-10&amp;audio_data=1.2713364e-10&amp;audio_data=-3.478022e-10&amp;audio_data=-1.0052257e-09&amp;audio_data=-5.004752e-10&amp;audio_data=-3.5778183e-10&amp;audio_data=-3.5437517e-10&amp;audio_data=-4.6508716e-10&amp;audio_data=-4.010455e-10&amp;audio_data=-3.424954e-10&amp;audio_data=-8.516251e-10&amp;audio_data=-8.209717e-10&amp;audio_data=-1.2450218e-09&amp;audio_data=-1.0269453e-09&amp;audio_data=-1.1235187e-09&amp;audio_data=-1.0906068e-09&amp;audio_data=-9.781415e-10&amp;audio_data=-7.256848e-10&amp;audio_data=-2.1208699e-10&amp;audio_data=-4.6246645e-10&amp;audio_data=-7.8431145e-10&amp;audio_data=-8.10263e-10&amp;audio_data=-8.645192e-10&amp;audio_data=-1.1000225e-09&amp;audio_data=-1.3280159e-09&amp;audio_data=-5.021018e-10&amp;audio_data=-5.512398e-12&amp;audio_data=-7.363933e-10&amp;audio_data=-9.652853e-10&amp;audio_data=-4.9851445e-10&amp;audio_data=-3.781045e-10&amp;audio_data=-7.247685e-10&amp;audio_data=-9.665684e-10&amp;audio_data=-1.8057254e-10&amp;audio_data=-5.73457e-10&amp;audio_data=-1.1212384e-09&amp;audio_data=-1.2463246e-09&amp;audio_data=-7.8815304e-10&amp;audio_data=-4.157349e-10&amp;audio_data=-8.159687e-10&amp;audio_data=-9.0851887e-10&amp;audio_data=-5.401504e-10&amp;audio_data=-6.5331357e-10&amp;audio_data=-8.4939294e-10&amp;audio_data=-1.1742957e-09&amp;audio_data=-8.603149e-10&amp;audio_data=-7.853575e-10&amp;audio_data=-1.0772803e-09&amp;audio_data=-1.1927006e-09&amp;audio_data=-9.465037e-10&amp;audio_data=-5.5954635e-10&amp;audio_data=-6.5139283e-10&amp;audio_data=-1.2724092e-09&amp;audio_data=-1.1695512e-09&amp;audio_data=-9.648596e-10&amp;audio_data=-1.107255e-09&amp;audio_data=-1.4357361e-09&amp;audio_data=-7.841539e-10&amp;audio_data=-4.3556045e-10&amp;audio_data=-1.0516156e-09&amp;audio_data=-1.6620808e-09&amp;audio_data=-1.0578007e-09&amp;audio_data=-6.8489164e-10&amp;audio_data=-9.855302e-10&amp;audio_data=-1.1461567e-09&amp;audio_data=-5.5759125e-10&amp;audio_data=-6.706198e-10&amp;audio_data=-1.341469e-09&amp;audio_data=-1.3208591e-09&amp;audio_data=-9.1866875e-10&amp;audio_data=-4.3394047e-10&amp;audio_data=-8.2924184e-10&amp;… &lt;trimmed 2825983 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>separator</td>
+                    <td class="code"><pre>&#x27;&amp;&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>strict_parsing</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+          <li class="cause"><h3>
+          
+            The above exception (Max number of fields exceeded) was the direct cause of the following exception:
+          
+        </h3></li>
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py</code>, line 55, in inner
+          
+
+          
+            <div class="context" id="c2122438783488">
+              
+                <ol start="48" class="pre-context" id="pre2122438783488">
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>        return inner</pre></li>
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>        @wraps(get_response)</pre></li>
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>        def inner(request):</pre></li>
+                
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>            try:</pre></li>
+                
+                </ol>
+              
+              <ol start="55" class="context-line">
+                <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='56' class="post-context" id="post2122438783488">
+                  
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>            except Exception as exc:</pre></li>
+                  
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>            return response</pre></li>
+                  
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre>        return inner</pre></li>
+                  
+                  <li onclick="toggle('pre2122438783488', 'post2122438783488')"><pre></pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438783488">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc</td>
+                    <td class="code"><pre>TooManyFieldsSent(&#x27;The number of GET/POST parameters exceeded settings.DATA_UPLOAD_MAX_NUMBER_FIELDS.&#x27;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;XFrameOptionsMiddleware get_response=BaseHandler._get_response&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\utils\deprecation.py</code>, line 134, in __call__
+          
+
+          
+            <div class="context" id="c2122438780096">
+              
+                <ol start="127" class="pre-context" id="pre2122438780096">
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>    def __call__(self, request):</pre></li>
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        # Exit out to async mode, if needed</pre></li>
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        if iscoroutinefunction(self):</pre></li>
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>            return self.__acall__(request)</pre></li>
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        response = None</pre></li>
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        if hasattr(self, &quot;process_request&quot;):</pre></li>
+                
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>            response = self.process_request(request)</pre></li>
+                
+                </ol>
+              
+              <ol start="134" class="context-line">
+                <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        response = response or self.get_response(request)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='135' class="post-context" id="post2122438780096">
+                  
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        if hasattr(self, &quot;process_response&quot;):</pre></li>
+                  
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>            response = self.process_response(request, response)</pre></li>
+                  
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        return response</pre></li>
+                  
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>    async def __acall__(self, request):</pre></li>
+                  
+                  <li onclick="toggle('pre2122438780096', 'post2122438780096')"><pre>        &quot;&quot;&quot;</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438780096">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;XFrameOptionsMiddleware get_response=BaseHandler._get_response&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py</code>, line 57, in inner
+          
+
+          
+            <div class="context" id="c2122438772224">
+              
+                <ol start="50" class="pre-context" id="pre2122438772224">
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>        @wraps(get_response)</pre></li>
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>        def inner(request):</pre></li>
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>            try:</pre></li>
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>                response = get_response(request)</pre></li>
+                
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>            except Exception as exc:</pre></li>
+                
+                </ol>
+              
+              <ol start="57" class="context-line">
+                <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>                response = response_for_exception(request, exc)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='58' class="post-context" id="post2122438772224">
+                  
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>            return response</pre></li>
+                  
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>        return inner</pre></li>
+                  
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438772224', 'post2122438772224')"><pre>def response_for_exception(request, exc):</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438772224">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001EE6288EEF0&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py</code>, line 140, in response_for_exception
+          
+
+          
+            <div class="context" id="c2122438771776">
+              
+                <ol start="133" class="pre-context" id="pre2122438771776">
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>        else:</pre></li>
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>            response = get_exception_response(</pre></li>
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>                request, get_resolver(get_urlconf()), 400, exc</pre></li>
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>            )</pre></li>
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>    else:</pre></li>
+                
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>        signals.got_request_exception.send(sender=None, request=request)</pre></li>
+                
+                </ol>
+              
+              <ol start="140" class="context-line">
+                <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>        response = handle_uncaught_exception(</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='141' class="post-context" id="post2122438771776">
+                  
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>            request, get_resolver(get_urlconf()), sys.exc_info()</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>        )</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>        log_response(</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>            &quot;%s: %s&quot;,</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>            response.reason_phrase,</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771776', 'post2122438771776')"><pre>            request.path,</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438771776">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc</td>
+                    <td class="code"><pre>AssertionError(&quot;Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;coroutine&#x27;&gt;`&quot;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py</code>, line 181, in handle_uncaught_exception
+          
+
+          
+            <div class="context" id="c2122438778624">
+              
+                <ol start="174" class="pre-context" id="pre2122438778624">
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    Processing for any otherwise uncaught exceptions (those that will</pre></li>
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    generate HTTP 500 responses).</pre></li>
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    if settings.DEBUG_PROPAGATE_EXCEPTIONS:</pre></li>
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>        raise</pre></li>
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    if settings.DEBUG:</pre></li>
+                
+                </ol>
+              
+              <ol start="181" class="context-line">
+                <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>        return debug.technical_500_response(request, *exc_info)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='182' class="post-context" id="post2122438778624">
+                  
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    # Return an HttpResponse that displays a friendly error message.</pre></li>
+                  
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    callback = resolver.resolve_error_handler(500)</pre></li>
+                  
+                  <li onclick="toggle('pre2122438778624', 'post2122438778624')"><pre>    return callback(request)</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438778624">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc_info</td>
+                    <td class="code"><pre>(&lt;class &#x27;AssertionError&#x27;&gt;,
+ AssertionError(&quot;Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;coroutine&#x27;&gt;`&quot;),
+ &lt;traceback object at 0x000001EE2B6CDA00&gt;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;URLResolver &#x27;GOSMIC_Z_server.urls&#x27; (None:None) &#x27;^/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py</code>, line 67, in technical_500_response
+          
+
+          
+            <div class="context" id="c2122438771712">
+              
+                <ol start="60" class="pre-context" id="pre2122438771712">
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>def technical_500_response(request, exc_type, exc_value, tb, status_code=500):</pre></li>
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    Create a technical server error response. The last three arguments are</pre></li>
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    the values returned from sys.exc_info() and friends.</pre></li>
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    reporter = get_exception_reporter_class(request)(request, exc_type, exc_value, tb)</pre></li>
+                
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    if request.accepts(&quot;text/html&quot;):</pre></li>
+                
+                </ol>
+              
+              <ol start="67" class="context-line">
+                <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>        html = reporter.get_traceback_html()</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='68' class="post-context" id="post2122438771712">
+                  
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>        return HttpResponse(html, status=status_code)</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>    else:</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>        text = reporter.get_traceback_text()</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>        return HttpResponse(</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>            text, status=status_code, content_type=&quot;text/plain; charset=utf-8&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre2122438771712', 'post2122438771712')"><pre>        )</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438771712">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>exc_type</td>
+                    <td class="code"><pre>&lt;class &#x27;AssertionError&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>exc_value</td>
+                    <td class="code"><pre>AssertionError(&quot;Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;coroutine&#x27;&gt;`&quot;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>reporter</td>
+                    <td class="code"><pre>&lt;django.views.debug.ExceptionReporter object at 0x000001EE2B6393F0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status_code</td>
+                    <td class="code"><pre>500</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>tb</td>
+                    <td class="code"><pre>&lt;traceback object at 0x000001EE2B6CDA00&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py</code>, line 410, in get_traceback_html
+          
+
+          
+            <div class="context" id="c2122438781568">
+              
+                <ol start="403" class="pre-context" id="pre2122438781568">
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>            c[&quot;lastframe&quot;] = frames[-1]</pre></li>
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        return c</pre></li>
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>    def get_traceback_html(self):</pre></li>
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        &quot;&quot;&quot;Return HTML version of debug 500 HTTP error page.&quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        with self.html_template_path.open(encoding=&quot;utf-8&quot;) as fh:</pre></li>
+                
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>            t = DEBUG_ENGINE.from_string(fh.read())</pre></li>
+                
+                </ol>
+              
+              <ol start="410" class="context-line">
+                <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        c = Context(self.get_traceback_data(), use_l10n=False)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='411' class="post-context" id="post2122438781568">
+                  
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        return t.render(c)</pre></li>
+                  
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>    def get_traceback_text(self):</pre></li>
+                  
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        &quot;&quot;&quot;Return plain text version of debug 500 HTTP error page.&quot;&quot;&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>        with self.text_template_path.open(encoding=&quot;utf-8&quot;) as fh:</pre></li>
+                  
+                  <li onclick="toggle('pre2122438781568', 'post2122438781568')"><pre>            t = DEBUG_ENGINE.from_string(fh.read())</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122438781568">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>fh</td>
+                    <td class="code"><pre>&lt;_io.TextIOWrapper name=&#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\django\\views\\templates\\technical_500.html&#x27; mode=&#x27;r&#x27; encoding=&#x27;utf-8&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.views.debug.ExceptionReporter object at 0x000001EE2B6393F0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>t</td>
+                    <td class="code"><pre>&lt;Template template_string=&quot;&lt;!DOCTYPE html&gt;&lt;htm...&quot;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py</code>, line 377, in get_traceback_data
+          
+
+          
+            <div class="context" id="c2122442392320">
+              
+                <ol start="370" class="pre-context" id="pre2122442392320">
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;unicode_hint&quot;: unicode_hint,</pre></li>
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;frames&quot;: frames,</pre></li>
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;request&quot;: self.request,</pre></li>
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;request_meta&quot;: self.filter.get_safe_request_meta(self.request),</pre></li>
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;request_COOKIES_items&quot;: self.filter.get_safe_cookies(self.request).items(),</pre></li>
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;user_str&quot;: user_str,</pre></li>
+                
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;filtered_POST_items&quot;: list(</pre></li>
+                
+                </ol>
+              
+              <ol start="377" class="context-line">
+                <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>                self.filter.get_post_parameters(self.request).items()</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='378' class="post-context" id="post2122442392320">
+                  
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            ),</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;settings&quot;: self.filter.get_safe_settings(),</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;sys_executable&quot;: sys.executable,</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;sys_version_info&quot;: &quot;%d.%d.%d&quot; % sys.version_info[0:3],</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;server_time&quot;: timezone.now(),</pre></li>
+                  
+                  <li onclick="toggle('pre2122442392320', 'post2122442392320')"><pre>            &quot;django_version_info&quot;: get_version(),</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442392320">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>frame</td>
+                    <td class="code"><pre>{&#x27;colno&#x27;: &#x27;&#x27;,
+ &#x27;context_line&#x27;: &#x27;        assert isinstance(response, HttpResponseBase), (&#x27;,
+ &#x27;exc_cause&#x27;: None,
+ &#x27;exc_cause_explicit&#x27;: None,
+ &#x27;filename&#x27;: &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\rest_framework\\views.py&#x27;,
+ &#x27;function&#x27;: &#x27;finalize_response&#x27;,
+ &#x27;id&#x27;: 2122442392768,
+ &#x27;lineno&#x27;: 423,
+ &#x27;post_context&#x27;: [&quot;            &#x27;Expected a `Response`, `HttpResponse` or &quot;
+                  &quot;`HttpStreamingResponse` &#x27;&quot;,
+                  &quot;            &#x27;to be returned from the view, but received a &quot;
+                  &quot;`%s`&#x27;&quot;,
+                  &#x27;            % type(response)&#x27;,
+                  &#x27;        )&#x27;,
+                  &#x27;&#x27;,
+                  &#x27;        if isinstance(response, Response):&#x27;],
+ &#x27;pre_context&#x27;: [&#x27;        self.check_throttles(request)&#x27;,
+                 &#x27;&#x27;,
+                 &#x27;    def finalize_response(self, request, response, *args, &#x27;
+                 &#x27;**kwargs):&#x27;,
+                 &#x27;        &quot;&quot;&quot;&#x27;,
+                 &#x27;        Returns the final response object.&#x27;,
+                 &#x27;        &quot;&quot;&quot;&#x27;,
+                 &#x27;        # Make the error obvious if a proper response is not &#x27;
+                 &#x27;returned&#x27;],
+ &#x27;pre_context_lineno&#x27;: 416,
+ &#x27;tb&#x27;: &lt;traceback object at 0x000001EE2B6CC4C0&gt;,
+ &#x27;tb_area_colno&#x27;: &#x27;&#x27;,
+ &#x27;type&#x27;: &#x27;user&#x27;,
+ &#x27;vars&#x27;: [(&#x27;self&#x27;,
+           &#x27;&lt;myapp.views.Whisper_ChatGPT_TTS object at 0x000001EE2B63A830&gt;&#x27;),
+          (&#x27;request&#x27;,
+           &#x27;&lt;rest_framework.request.Request: POST &#x27;
+           &quot;&#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;&quot;),
+          (&#x27;response&#x27;,
+           &#x27;&lt;coroutine object Whisper_ChatGPT_TTS.post at 0x000001EE2B6E8270&gt;&#x27;),
+          (&#x27;args&#x27;, &#x27;()&#x27;),
+          (&#x27;kwargs&#x27;, &#x27;{}&#x27;)]}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>frame_vars</td>
+                    <td class="code"><pre>[(&#x27;self&#x27;, &#x27;&lt;myapp.views.Whisper_ChatGPT_TTS object at 0x000001EE2B63A830&gt;&#x27;),
+ (&#x27;request&#x27;,
+  &#x27;&lt;rest_framework.request.Request: POST &#x27;
+  &quot;&#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;&quot;),
+ (&#x27;response&#x27;,
+  &#x27;&lt;coroutine object Whisper_ChatGPT_TTS.post at 0x000001EE2B6E8270&gt;&#x27;),
+ (&#x27;args&#x27;, &#x27;()&#x27;),
+ (&#x27;kwargs&#x27;, &#x27;{}&#x27;)]</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>frames</td>
+                    <td class="code"><pre>[{&#x27;colno&#x27;: &#x27;&#x27;,
+  &#x27;context_line&#x27;: &#x27;                response = get_response(request)&#x27;,
+  &#x27;exc_cause&#x27;: None,
+  &#x27;exc_cause_explicit&#x27;: None,
+  &#x27;filename&#x27;: &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\django\\core\\handlers\\exception.py&#x27;,
+  &#x27;function&#x27;: &#x27;inner&#x27;,
+  &#x27;id&#x27;: 2122442398208,
+  &#x27;lineno&#x27;: 55,
+  &#x27;post_context&#x27;: [&#x27;            except Exception as exc:&#x27;,
+                   &#x27;                response = response_for_exception(request, &#x27;
+                   &#x27;exc)&#x27;,
+                   &#x27;            return response&#x27;,
+                   &#x27;&#x27;,
+                   &#x27;        return inner&#x27;,
+                   &#x27;&#x27;],
+  &#x27;pre_context&#x27;: [&#x27;&#x27;,
+                  &#x27;        return inner&#x27;,
+                  &#x27;    else:&#x27;,
+                  &#x27;&#x27;,
+                  &#x27;        @wraps(get_response)&#x27;,
+                  &#x27;        def inner(request):&#x27;,
+                  &#x27;            try:&#x27;],
+  &#x27;pre_context_lineno&#x27;: 48,
+  &#x27;tb&#x27;: &lt;traceback object at 0x000001EE2B6CDA00&gt;,
+  &#x27;tb_area_colno&#x27;: &#x27;&#x27;,
+  &#x27;type&#x27;: &#x27;django&#x27;,
+  &#x27;vars&#x27;: [(&#x27;request&#x27;,
+            &quot;&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;&quot;),
+           (&#x27;exc&#x27;,
+            &#x27;AssertionError(&quot;Expected a `Response`, `HttpResponse` or &#x27;
+            &#x27;`HttpStreamingResponse` to be returned from the view, but &#x27;
+            &#x27;received a `&lt;class \&#x27;coroutine\&#x27;&gt;`&quot;)&#x27;),
+           (&#x27;get_response&#x27;,
+            &#x27;&lt;bound method BaseHandler._get_response of &#x27;
+            &#x27;&lt;django.core.handlers.wsgi.WSGIHandler object at &#x27;
+            &#x27;0x000001EE6288EEF0&gt;&gt;&#x27;)]},
+ {&#x27;colno&#x27;: &#x27;&#x27;,
+  &#x27;context_line&#x27;: &#x27;                response = wrapped_callback(request, &#x27;
+                  &#x27;*callback_args, **callback_kwargs)&#x27;,
+  &#x27;exc_cause&#x27;: None,
+  &#x27;exc_cause_explicit&#x27;: None,
+  &#x27;filename&#x27;: &#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\lib\\site-packages\\django\\core\\handlers\\base.py&#x27;,
+  &#x27;function&#x27;: &#x27;_get_response&#x27;,
+  &#x27;id&#x27;: 2122442401728,
+  &#x27;lineno&#x27;: 197,
+  &#x27;post_context&#x27;: [&#x27;            except Exception as e:&#x27;,
+                   &#x27;                response = &#x27;
+                   &#x27;self.process_exception_by_middleware(e, request)&#x27;,
+                   &#x27;                if response is None:&#x27;,
+                   &#x27;                    raise&#x27;,
+                   &#x27;&#x27;,
+                   &#x27;        # Complain if the view returned None (a common &#x27;
+                   &#x27;error).&#x27;],
+  &#x27;pre_context&#x27;: [&#x27;&#x27;,
+                  &#x27;        if response is None:&#x27;,
+                  &#x27;            wrapped_callback = &#x27;
+                  &#x27;self.make_view_atomic(callback)&#x27;,
+                  &#x27;            # If it is an asynchronous view, run it in a &#x27;
+                  &#x27;subthread.&#x27;,
+                  &#x27;            if iscoroutinefunction(wrapped_callback):&#x27;,
+                  &#x27;                wrapped_callback = &#x27;
+                  &#x27;async_to_sync(wrapped_callback)&#x27;,
+                  &#x27;            try:&#x27;],
+  &#x27;pre_context_lineno&#x27;: 190,
+  &#x27;tb&#x27;: &lt;traceback object at 0x000001EE2B6CE7C0&gt;,
+  &#x27;tb_area_colno&#x27;: &#x27;&#x27;,
+  &#x27;type&#x27;: &#x27;django&#x27;,
+  &#x27;vars&#x27;: [(&#x27;self&#x27;,
+            &#x27;&lt;django.core.handlers.wsgi.WSGIHandler object at &#x27;
+            &#x27;0x000001EE6288EEF0&gt;&#x27;),
+           (&#x27;request&#x27;,
+            &quot;&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;&quot;),
+           (&#x27;response&#x27;, &#x27;None&#x27;),
+           (&#x27;callback&#x27;,
+            &#x27;&lt;function View.as_view.&lt;locals&gt;.view at 0x000001EE522C8820&gt;&#x27;),
+           (&#x27;callback_args&#x27;, &#x27;()&#x27;),
+           (&#x27;callback_kwargs&#x27;, &#x27;{}&#x27;),
+           (&#x27;middleware_method&#x27;,
+            &#x27;&lt;bound method CsrfViewMiddleware.process_view of &#x27;
+            &#x27;&lt;CsrfViewMiddleware &#x27;
+            &#x27;get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;&gt;&#x27;),
+           (&#x27;wrapped_callback&#x27;,
+            &#x27;&lt;asgiref.sync.AsyncToSync object at 0x000001EE2B639E40&gt;&#x27;)]},
+ {&#x27;colno&#x27;: &#x27;&#x27;,
+  &#x27;context_line&#x27;: &#x27;                    return self.__get_result()&#x27;,
+  &#x27;exc_cause&#x27;: None,
+  &#x27;exc_cause_explicit&#x27;: None,
+  &#x27;filename&#x27;: &#x27;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\lib\\concurrent\\futures\\_base.py&#x27;,
+  &#x27;function&#x27;: &#x27;result&#x27;,
+  &#x27;id&#x27;: 2122442397056,
+  &#x27;lineno&#x27;: 439,
+  &#x27;post_context&#x27;: [&#x27;&#x27;,
+                   &#x27;     … &lt;trimmed 12867 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>get_version</td>
+                    <td class="code"><pre>&lt;function get_version at 0x000001EE5FDB60E0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>i</td>
+                    <td class="code"><pre>7</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>k</td>
+                    <td class="code"><pre>&#x27;kwargs&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.views.debug.ExceptionReporter object at 0x000001EE2B6393F0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>unicode_hint</td>
+                    <td class="code"><pre>&#x27;&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>user_str</td>
+                    <td class="code"><pre>&#x27;AnonymousUser&#x27;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>v</td>
+                    <td class="code"><pre>&#x27;{}&#x27;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py</code>, line 221, in get_post_parameters
+          
+
+          
+            <div class="context" id="c2122442398528">
+              
+                <ol start="214" class="pre-context" id="pre2122442398528">
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                else:</pre></li>
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                    # Cleanse only the specified parameters.</pre></li>
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                    for param in sensitive_post_parameters:</pre></li>
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                        if param in cleansed:</pre></li>
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                            cleansed[param] = self.cleansed_substitute</pre></li>
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                    return cleansed</pre></li>
+                
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>            else:</pre></li>
+                
+                </ol>
+              
+              <ol start="221" class="context-line">
+                <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>                return request.POST</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='222' class="post-context" id="post2122442398528">
+                  
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>    def cleanse_special_types(self, request, value):</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>        try:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>            # If value is lazy or a complex object of another kind, this check</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>            # might raise an exception. isinstance checks that lazy</pre></li>
+                  
+                  <li onclick="toggle('pre2122442398528', 'post2122442398528')"><pre>            # MultiValueDicts will have a return value.</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442398528">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.views.debug.SafeExceptionReporterFilter object at 0x000001EE3293F250&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>sensitive_post_parameters</td>
+                    <td class="code"><pre>[]</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\wsgi.py</code>, line 93, in _get_post
+          
+
+          
+            <div class="context" id="c2122442402944">
+              
+                <ol start="86" class="pre-context" id="pre2122442402944">
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>    def GET(self):</pre></li>
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>        # The WSGI spec says &#x27;QUERY_STRING&#x27; may be absent.</pre></li>
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>        raw_query_string = get_bytes_from_wsgi(self.environ, &quot;QUERY_STRING&quot;, &quot;&quot;)</pre></li>
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>        return QueryDict(raw_query_string, encoding=self._encoding)</pre></li>
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>    def _get_post(self):</pre></li>
+                
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>        if not hasattr(self, &quot;_post&quot;):</pre></li>
+                
+                </ol>
+              
+              <ol start="93" class="context-line">
+                <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>            self._load_post_and_files()</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='94' class="post-context" id="post2122442402944">
+                  
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>        return self._post</pre></li>
+                  
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>    def _set_post(self, post):</pre></li>
+                  
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>        self._post = post</pre></li>
+                  
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442402944', 'post2122442402944')"><pre>    @cached_property</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442402944">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py</code>, line 383, in _load_post_and_files
+          
+
+          
+            <div class="context" id="c2122442397760">
+              
+                <ol start="376" class="pre-context" id="pre2122442397760">
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                # formatting the error the request handler might access</pre></li>
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                # self.POST, set self._post and self._file to prevent</pre></li>
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                # attempts to parse POST data again.</pre></li>
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                self._mark_post_parse_error()</pre></li>
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                raise</pre></li>
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>        elif self.content_type == &quot;application/x-www-form-urlencoded&quot;:</pre></li>
+                
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>            self._post, self._files = (</pre></li>
+                
+                </ol>
+              
+              <ol start="383" class="context-line">
+                <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                QueryDict(self.body, encoding=self._encoding),</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='384' class="post-context" id="post2122442397760">
+                  
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                MultiValueDict(),</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>            )</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>        else:</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>            self._post, self._files = (</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                QueryDict(encoding=self._encoding),</pre></li>
+                  
+                  <li onclick="toggle('pre2122442397760', 'post2122442397760')"><pre>                MultiValueDict(),</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442397760">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame django">
+          
+            <code class="fname">C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py</code>, line 521, in __init__
+          
+
+          
+            <div class="context" id="c2122442396480">
+              
+                <ol start="514" class="pre-context" id="pre2122442396480">
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            for key, value in parse_qsl(query_string, **parse_qsl_kwargs):</pre></li>
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>                self.appendlist(key, value)</pre></li>
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>        except ValueError as e:</pre></li>
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            # ValueError can also be raised if the strict_parsing argument to</pre></li>
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            # parse_qsl() is True. As that is not used by Django, assume that</pre></li>
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            # the exception was raised by exceeding the value of max_num_fields</pre></li>
+                
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            # instead of fragile checks of exception message strings.</pre></li>
+                
+                </ol>
+              
+              <ol start="521" class="context-line">
+                <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            raise TooManyFieldsSent(</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='522' class="post-context" id="post2122442396480">
+                  
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>                &quot;The number of GET/POST parameters exceeded &quot;</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>                &quot;settings.DATA_UPLOAD_MAX_NUMBER_FIELDS.&quot;</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>            ) from e</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>        self._mutable = mutable</pre></li>
+                  
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2122442396480', 'post2122442396480')"><pre>    @classmethod</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2122442396480">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>__class__</td>
+                    <td class="code"><pre>&lt;class &#x27;django.http.request.QueryDict&#x27;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>encoding</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>mutable</td>
+                    <td class="code"><pre>False</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_qsl_kwargs</td>
+                    <td class="code"><pre>{&#x27;encoding&#x27;: &#x27;utf-8&#x27;, &#x27;keep_blank_values&#x27;: True, &#x27;max_num_fields&#x27;: 2000}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>query_string</td>
+                    <td class="code"><pre>&#x27;audio_data=-1.3672042e-09&amp;audio_data=-3.124414e-09&amp;audio_data=6.0818056e-10&amp;audio_data=1.2899537e-09&amp;audio_data=-1.2020671e-09&amp;audio_data=-9.356994e-10&amp;audio_data=-9.71481e-10&amp;audio_data=-8.5771834e-10&amp;audio_data=-5.8571564e-10&amp;audio_data=-8.400681e-10&amp;audio_data=-9.838548e-10&amp;audio_data=-8.3025414e-10&amp;audio_data=-9.688725e-10&amp;audio_data=-7.815423e-10&amp;audio_data=-8.3753104e-10&amp;audio_data=-9.346727e-10&amp;audio_data=-9.2010966e-10&amp;audio_data=-8.993724e-10&amp;audio_data=-8.659174e-10&amp;audio_data=-7.7954426e-10&amp;audio_data=-9.808784e-10&amp;audio_data=-9.1579505e-10&amp;audio_data=2.0729857e-11&amp;audio_data=-4.4053677e-10&amp;audio_data=8.93104e-10&amp;audio_data=-2.9146657e-10&amp;audio_data=1.1242032e-11&amp;audio_data=-1.0472316e-09&amp;audio_data=4.3696133e-10&amp;audio_data=-4.0718612e-10&amp;audio_data=4.1193363e-10&amp;audio_data=-4.537016e-10&amp;audio_data=6.946636e-10&amp;audio_data=-7.8431567e-10&amp;audio_data=3.611669e-11&amp;audio_data=-4.2404213e-10&amp;audio_data=1.08842164e-10&amp;audio_data=-7.5930856e-10&amp;audio_data=-4.967755e-10&amp;audio_data=-8.7424595e-10&amp;audio_data=-3.47316e-10&amp;audio_data=-3.245286e-10&amp;audio_data=-2.6206523e-10&amp;audio_data=-3.10592e-10&amp;audio_data=-1.459015e-10&amp;audio_data=-1.3206825e-11&amp;audio_data=-5.354339e-12&amp;audio_data=-4.561447e-10&amp;audio_data=1.3729509e-10&amp;audio_data=-2.5854877e-10&amp;audio_data=-1.12600464e-10&amp;audio_data=5.4214766e-10&amp;audio_data=8.7665364e-10&amp;audio_data=1.2025951e-09&amp;audio_data=4.8332705e-10&amp;audio_data=1.2042879e-09&amp;audio_data=6.067038e-10&amp;audio_data=5.5349725e-10&amp;audio_data=4.679419e-10&amp;audio_data=1.3005423e-09&amp;audio_data=9.170037e-10&amp;audio_data=7.4311696e-10&amp;audio_data=9.541837e-10&amp;audio_data=9.396559e-10&amp;audio_data=8.705484e-10&amp;audio_data=8.1933105e-10&amp;audio_data=7.970068e-10&amp;audio_data=8.362375e-10&amp;audio_data=4.482814e-10&amp;audio_data=4.2716858e-10&amp;audio_data=1.9564037e-10&amp;audio_data=6.1765765e-10&amp;audio_data=4.0936599e-10&amp;audio_data=4.0682793e-10&amp;audio_data=1.575351e-10&amp;audio_data=4.4523946e-10&amp;audio_data=4.974925e-10&amp;audio_data=4.3808265e-10&amp;audio_data=2.6999827e-10&amp;audio_data=3.7911663e-11&amp;audio_data=-8.378005e-11&amp;audio_data=-3.4640504e-10&amp;audio_data=-5.8061644e-10&amp;audio_data=-8.190136e-11&amp;audio_data=2.015527e-10&amp;audio_data=-2.010028e-10&amp;audio_data=-4.1578438e-10&amp;audio_data=2.8494854e-10&amp;audio_data=2.207473e-10&amp;audio_data=-6.758303e-11&amp;audio_data=-3.0467337e-10&amp;audio_data=1.2713364e-10&amp;audio_data=-3.478022e-10&amp;audio_data=-1.0052257e-09&amp;audio_data=-5.004752e-10&amp;audio_data=-3.5778183e-10&amp;audio_data=-3.5437517e-10&amp;audio_data=-4.6508716e-10&amp;audio_data=-4.010455e-10&amp;audio_data=-3.424954e-10&amp;audio_data=-8.516251e-10&amp;audio_data=-8.209717e-10&amp;audio_data=-1.2450218e-09&amp;audio_data=-1.0269453e-09&amp;audio_data=-1.1235187e-09&amp;audio_data=-1.0906068e-09&amp;audio_data=-9.781415e-10&amp;audio_data=-7.256848e-10&amp;audio_data=-2.1208699e-10&amp;audio_data=-4.6246645e-10&amp;audio_data=-7.8431145e-10&amp;audio_data=-8.10263e-10&amp;audio_data=-8.645192e-10&amp;audio_data=-1.1000225e-09&amp;audio_data=-1.3280159e-09&amp;audio_data=-5.021018e-10&amp;audio_data=-5.512398e-12&amp;audio_data=-7.363933e-10&amp;audio_data=-9.652853e-10&amp;audio_data=-4.9851445e-10&amp;audio_data=-3.781045e-10&amp;audio_data=-7.247685e-10&amp;audio_data=-9.665684e-10&amp;audio_data=-1.8057254e-10&amp;audio_data=-5.73457e-10&amp;audio_data=-1.1212384e-09&amp;audio_data=-1.2463246e-09&amp;audio_data=-7.8815304e-10&amp;audio_data=-4.157349e-10&amp;audio_data=-8.159687e-10&amp;audio_data=-9.0851887e-10&amp;audio_data=-5.401504e-10&amp;audio_data=-6.5331357e-10&amp;audio_data=-8.4939294e-10&amp;audio_data=-1.1742957e-09&amp;audio_data=-8.603149e-10&amp;audio_data=-7.853575e-10&amp;audio_data=-1.0772803e-09&amp;audio_data=-1.1927006e-09&amp;audio_data=-9.465037e-10&amp;audio_data=-5.5954635e-10&amp;audio_data=-6.5139283e-10&amp;audio_data=-1.2724092e-09&amp;audio_data=-1.1695512e-09&amp;audio_data=-9.648596e-10&amp;audio_data=-1.107255e-09&amp;audio_data=-1.4357361e-09&amp;audio_data=-7.841539e-10&amp;audio_data=-4.3556045e-10&amp;audio_data=-1.0516156e-09&amp;audio_data=-1.6620808e-09&amp;audio_data=-1.0578007e-09&amp;audio_data=-6.8489164e-10&amp;audio_data=-9.855302e-10&amp;audio_data=-1.1461567e-09&amp;audio_data=-5.5759125e-10&amp;audio_data=-6.706198e-10&amp;audio_data=-1.341469e-09&amp;audio_data=-1.3208591e-09&amp;audio_data=-9.1866875e-10&amp;audio_data=-4.3394047e-10&amp;audio_data=-8.2924184e-10&amp;… &lt;trimmed 2825983 bytes string&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;QueryDict: {}&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+  <form action="https://dpaste.com/" name="pasteform" id="pasteform" method="post">
+  <div id="pastebinTraceback" class="pastebin">
+    <input type="hidden" name="language" value="PythonConsole">
+    <input type="hidden" name="title"
+      value="TooManyFieldsSent at /myapp/models/Whisper_ChatGPT_TTS/">
+    <input type="hidden" name="source" value="Django Dpaste Agent">
+    <input type="hidden" name="poster" value="Django">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">
+Environment:
+
+
+Request Method: POST
+Request URL: http://localhost:8000/myapp/models/Whisper_ChatGPT_TTS/
+
+Django Version: 4.2.1
+Python Version: 3.10.4
+Installed Applications:
+[&#x27;django.contrib.admin&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;myapp&#x27;,
+ &#x27;rest_framework&#x27;]
+Installed Middleware:
+[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]
+
+
+
+Traceback (most recent call last):
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\amate\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 439, in result
+    return self.__get_result()
+  File "C:\Users\amate\AppData\Local\Programs\Python\Python310\lib\concurrent\futures\_base.py", line 391, in __get_result
+    raise self._exception
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+
+During handling of the above exception (Expected a `Response`, `HttpResponse` or `HttpStreamingResponse` to be returned from the view, but received a `&lt;class &#x27;coroutine&#x27;&gt;`), another exception occurred:
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py", line 514, in __init__
+    for key, value in parse_qsl(query_string, **parse_qsl_kwargs):
+  File "C:\Users\amate\AppData\Local\Programs\Python\Python310\lib\urllib\parse.py", line 755, in parse_qsl
+    raise ValueError(&#x27;Max number of fields exceeded&#x27;)
+
+The above exception (Max number of fields exceeded) was the direct cause of the following exception:
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\utils\deprecation.py", line 134, in __call__
+    response = response or self.get_response(request)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py", line 57, in inner
+    response = response_for_exception(request, exc)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py", line 140, in response_for_exception
+    response = handle_uncaught_exception(
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\exception.py", line 181, in handle_uncaught_exception
+    return debug.technical_500_response(request, *exc_info)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py", line 67, in technical_500_response
+    html = reporter.get_traceback_html()
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py", line 410, in get_traceback_html
+    c = Context(self.get_traceback_data(), use_l10n=False)
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py", line 377, in get_traceback_data
+    self.filter.get_post_parameters(self.request).items()
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\views\debug.py", line 221, in get_post_parameters
+    return request.POST
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\core\handlers\wsgi.py", line 93, in _get_post
+    self._load_post_and_files()
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py", line 383, in _load_post_and_files
+    QueryDict(self.body, encoding=self._encoding),
+  File "C:\Users\amate\Desktop\engineering\GOSMIC_GOZMIC\GOSMIC_Z_server\.venv\lib\site-packages\django\http\request.py", line 521, in __init__
+    raise TooManyFieldsSent(
+
+Exception Type: TooManyFieldsSent at /myapp/models/Whisper_ChatGPT_TTS/
+Exception Value: The number of GET/POST parameters exceeded settings.DATA_UPLOAD_MAX_NUMBER_FIELDS.
+</textarea>
+  <br><br>
+  <input type="submit" value="Share this traceback on a public website">
+  </div>
+</form>
+
+</div>
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+  
+    <h3 id="user-info">USER</h3>
+    <p>AnonymousUser</p>
+  
+
+  <h3 id="get-info">GET</h3>
+  
+    <p>No GET data</p>
+  
+
+  <h3 id="post-info">POST</h3>
+  
+    <p>No POST data</p>
+  
+
+  <h3 id="files-info">FILES</h3>
+  
+    <p>No FILES data</p>
+  
+
+  <h3 id="cookie-info">COOKIES</h3>
+  
+    <p>No cookie data</p>
+  
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>ALLUSERSPROFILE</td>
+          <td class="code"><pre>&#x27;C:\\ProgramData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPDATA</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\AppData\\Roaming&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHROME_CRASHPAD_PIPE_NAME</td>
+          <td class="code"><pre>&#x27;\\\\.\\pipe\\LOCAL\\crashpad_3980_QHXZSAQDYIVWTVMM&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COLORTERM</td>
+          <td class="code"><pre>&#x27;truecolor&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMW6432</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPUTERNAME</td>
+          <td class="code"><pre>&#x27;HARUTO_NOTEPC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMSPEC</td>
+          <td class="code"><pre>&#x27;C:\\WINDOWS\\system32\\cmd.exe&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>&#x27;2825981&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>&#x27;application/x-www-form-urlencoded&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;GOSMIC_Z_server.settings&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRIVERDATA</td>
+          <td class="code"><pre>&#x27;C:\\Windows\\System32\\Drivers\\DriverData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EFC_25480</td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FPS_BROWSER_APP_PROFILE_STRING</td>
+          <td class="code"><pre>&#x27;Internet Explorer&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FPS_BROWSER_USER_PROFILE_STRING</td>
+          <td class="code"><pre>&#x27;Default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>&#x27;CGI/1.1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GIT_ASKPASS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEDRIVE</td>
+          <td class="code"><pre>&#x27;C:&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEPATH</td>
+          <td class="code"><pre>&#x27;\\Users\\amate&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>&#x27;*/*&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_ENCODING</td>
+          <td class="code"><pre>&#x27;gzip, deflate&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECTION</td>
+          <td class="code"><pre>&#x27;keep-alive&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#x27;localhost:8000&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#x27;python-requests/2.31.0&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANG</td>
+          <td class="code"><pre>&#x27;en_US.UTF-8&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALAPPDATA</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\AppData\\Local&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGONSERVER</td>
+          <td class="code"><pre>&#x27;\\\\HARUTO_NOTEPC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_OF_PROCESSORS</td>
+          <td class="code"><pre>&#x27;16&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ONEDRIVE</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\OneDrive - Kyushu University&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ONEDRIVECOMMERCIAL</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\OneDrive - Kyushu University&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ORIGINAL_XDG_CURRENT_DESKTOP</td>
+          <td class="code"><pre>&#x27;undefined&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OS</td>
+          <td class="code"><pre>&#x27;Windows_NT&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>(&#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program &#x27;
+ &#x27;Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA &#x27;
+ &#x27;Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\dotnet\\;C:\\Program &#x27;
+ &#x27;Files\\Git\\cmd;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program &#x27;
+ &#x27;Files\\CMake\\bin;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\;C:\\Users\\amate\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\amate\\AppData\\Local\\Programs\\Microsoft &#x27;
+ &#x27;VS &#x27;
+ &#x27;Code\\bin;C:\\Users\\amate\\.dotnet\\tools;C:\\Users\\amate\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\amate\\.pyenv\\pyenv-win\\bin;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\;C:\\Users\\amate\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATHEXT</td>
+          <td class="code"><pre>&#x27;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>&#x27;/myapp/models/Whisper_ChatGPT_TTS/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_ARCHITECTURE</td>
+          <td class="code"><pre>&#x27;AMD64&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_IDENTIFIER</td>
+          <td class="code"><pre>&#x27;Intel64 Family 6 Model 141 Stepping 1, GenuineIntel&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_LEVEL</td>
+          <td class="code"><pre>&#x27;6&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_REVISION</td>
+          <td class="code"><pre>&#x27;8d01&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMDATA</td>
+          <td class="code"><pre>&#x27;C:\\ProgramData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES</td>
+          <td class="code"><pre>&#x27;C:\\Program Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMW6432</td>
+          <td class="code"><pre>&#x27;C:\\Program Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROMPT</td>
+          <td class="code"><pre>&#x27;(.venv) $P$G&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PSMODULEPATH</td>
+          <td class="code"><pre>(&#x27;C:\\Program &#x27;
+ &#x27;Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PUBLIC</td>
+          <td class="code"><pre>&#x27;C:\\Users\\Public&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PYENV</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\.pyenv\\pyenv-win&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PYENV_HOME</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\.pyenv\\pyenv-win&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#x27;127.0.0.1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>&#x27;POST&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>&#x27;true&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#x27;Haruto_notepc&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>&#x27;8000&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#x27;HTTP/1.1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#x27;WSGIServer/0.2&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSIONNAME</td>
+          <td class="code"><pre>&#x27;Console&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMDRIVE</td>
+          <td class="code"><pre>&#x27;C:&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMROOT</td>
+          <td class="code"><pre>&#x27;C:\\WINDOWS&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMP</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\AppData\\Local\\Temp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM_PROGRAM</td>
+          <td class="code"><pre>&#x27;vscode&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM_PROGRAM_VERSION</td>
+          <td class="code"><pre>&#x27;1.78.2&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TMP</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\AppData\\Local\\Temp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN</td>
+          <td class="code"><pre>&#x27;HARUTO_NOTEPC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN_ROAMINGPROFILE</td>
+          <td class="code"><pre>&#x27;HARUTO_NOTEPC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERNAME</td>
+          <td class="code"><pre>&#x27;amate&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERPROFILE</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VIRTUAL_ENV</td>
+          <td class="code"><pre>&#x27;C:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\.venv&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VIRTUAL_ENV_PROMPT</td>
+          <td class="code"><pre>&#x27;(.venv) &#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_EXTRA_ARGS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_MAIN</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_NODE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_IPC_HANDLE</td>
+          <td class="code"><pre>&#x27;\\\\.\\pipe\\vscode-git-deb3f67292-sock&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDIR</td>
+          <td class="code"><pre>&#x27;C:\\WINDOWS&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ZES_ENABLE_SYSMAN</td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>_OLD_VIRTUAL_PATH</td>
+          <td class="code"><pre>(&#x27;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program &#x27;
+ &#x27;Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA &#x27;
+ &#x27;Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\dotnet\\;C:\\Program &#x27;
+ &#x27;Files\\Git\\cmd;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program &#x27;
+ &#x27;Files\\CMake\\bin;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\;C:\\Users\\amate\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\amate\\AppData\\Local\\Programs\\Microsoft &#x27;
+ &#x27;VS &#x27;
+ &#x27;Code\\bin;C:\\Users\\amate\\.dotnet\\tools;C:\\Users\\amate\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\amate\\.pyenv\\pyenv-win\\bin;C:\\Users\\amate\\AppData\\Local\\Programs\\Python\\Python310\\;C:\\Users\\amate\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>_OLD_VIRTUAL_PROMPT</td>
+          <td class="code"><pre>&#x27;$P$G&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;_io.TextIOWrapper name=&#x27;&lt;stderr&gt;&#x27; mode=&#x27;w&#x27; encoding=&#x27;utf-8&#x27;&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>&lt;class &#x27;wsgiref.util.FileWrapper&#x27;&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;django.core.handlers.wsgi.LimitedStream object at 0x000001EE2B63ABC0&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#x27;http&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>GOSMIC_Z_server.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>[&#x27;django.contrib.auth.backends.ModelBackend&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_PASSWORD_VALIDATORS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>&#x27;auth.User&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>&#x27;c:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;BACKEND&#x27;: &#x27;django.core.cache.backends.locmem.LocMemCache&#x27;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_MASKED</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;csrftoken&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#x27;django.views.csrf.csrf_failure&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_HEADER_NAME</td>
+          <td class="code"><pre>&#x27;HTTP_X_CSRFTOKEN&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_TRUSTED_ORIGINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_USE_SESSIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;ATOMIC_REQUESTS&#x27;: False,
+             &#x27;AUTOCOMMIT&#x27;: True,
+             &#x27;CONN_HEALTH_CHECKS&#x27;: False,
+             &#x27;CONN_MAX_AGE&#x27;: 0,
+             &#x27;ENGINE&#x27;: &#x27;django.db.backends.sqlite3&#x27;,
+             &#x27;HOST&#x27;: &#x27;&#x27;,
+             &#x27;NAME&#x27;: &#x27;c:\\Users\\amate\\Desktop\\engineering\\GOSMIC_GOZMIC\\GOSMIC_Z_server\\db.sqlite3&#x27;,
+             &#x27;OPTIONS&#x27;: {},
+             &#x27;PASSWORD&#x27;: &#x27;********************&#x27;,
+             &#x27;PORT&#x27;: &#x27;&#x27;,
+             &#x27;TEST&#x27;: {&#x27;CHARSET&#x27;: None,
+                      &#x27;COLLATION&#x27;: None,
+                      &#x27;MIGRATE&#x27;: True,
+                      &#x27;MIRROR&#x27;: None,
+                      &#x27;NAME&#x27;: None},
+             &#x27;TIME_ZONE&#x27;: None,
+             &#x27;USER&#x27;: &#x27;&#x27;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>104857600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_NUMBER_FIELDS</td>
+          <td class="code"><pre>2000</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATA_UPLOAD_MAX_NUMBER_FILES</td>
+          <td class="code"><pre>100</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;N j, Y, P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%Y-%m-%d %H:%M:%S&#x27;,
+ &#x27;%Y-%m-%d %H:%M:%S.%f&#x27;,
+ &#x27;%Y-%m-%d %H:%M&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%Y %H:%M&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%y %H:%M&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;N j, Y&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%Y-%m-%d&#x27;,
+ &#x27;%m/%d/%Y&#x27;,
+ &#x27;%m/%d/%y&#x27;,
+ &#x27;%b %d %Y&#x27;,
+ &#x27;%b %d, %Y&#x27;,
+ &#x27;%d %b %Y&#x27;,
+ &#x27;%d %b, %Y&#x27;,
+ &#x27;%B %d %Y&#x27;,
+ &#x27;%B %d, %Y&#x27;,
+ &#x27;%d %B %Y&#x27;,
+ &#x27;%d %B, %Y&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#x27;.&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_AUTO_FIELD</td>
+          <td class="code"><pre>&#x27;django.db.models.AutoField&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#x27;utf-8&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER</td>
+          <td class="code"><pre>&#x27;django.views.debug.ExceptionReporter&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>&#x27;django.views.debug.SafeExceptionReporterFilter&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.core.files.storage.FileSystemStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#x27;webmaster@localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.mail.backends.smtp.EmailBackend&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_CERTFILE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SSL_KEYFILE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#x27;[Django] &#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_TIMEOUT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_LOCALTIME</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_SSL</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>[&#x27;django.core.files.uploadhandler.MemoryFileUploadHandler&#x27;,
+ &#x27;django.core.files.uploadhandler.TemporaryFileUploadHandler&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>420</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORM_RENDERER</td>
+          <td class="code"><pre>&#x27;django.forms.renderers.DjangoTemplates&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>[&#x27;django.contrib.admin&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;myapp&#x27;,
+ &#x27;rest_framework&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>[(&#x27;af&#x27;, &#x27;Afrikaans&#x27;),
+ (&#x27;ar&#x27;, &#x27;Arabic&#x27;),
+ (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;),
+ (&#x27;ast&#x27;, &#x27;Asturian&#x27;),
+ (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;),
+ (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;),
+ (&#x27;be&#x27;, &#x27;Belarusian&#x27;),
+ (&#x27;bn&#x27;, &#x27;Bengali&#x27;),
+ (&#x27;br&#x27;, &#x27;Breton&#x27;),
+ (&#x27;bs&#x27;, &#x27;Bosnian&#x27;),
+ (&#x27;ca&#x27;, &#x27;Catalan&#x27;),
+ (&#x27;ckb&#x27;, &#x27;Central Kurdish (Sorani)&#x27;),
+ (&#x27;cs&#x27;, &#x27;Czech&#x27;),
+ (&#x27;cy&#x27;, &#x27;Welsh&#x27;),
+ (&#x27;da&#x27;, &#x27;Danish&#x27;),
+ (&#x27;de&#x27;, &#x27;German&#x27;),
+ (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;),
+ (&#x27;el&#x27;, &#x27;Greek&#x27;),
+ (&#x27;en&#x27;, &#x27;English&#x27;),
+ (&#x27;en-au&#x27;, &#x27;Australian English&#x27;),
+ (&#x27;en-gb&#x27;, &#x27;British English&#x27;),
+ (&#x27;eo&#x27;, &#x27;Esperanto&#x27;),
+ (&#x27;es&#x27;, &#x27;Spanish&#x27;),
+ (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;),
+ (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;),
+ (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;),
+ (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;),
+ (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;),
+ (&#x27;et&#x27;, &#x27;Estonian&#x27;),
+ (&#x27;eu&#x27;, &#x27;Basque&#x27;),
+ (&#x27;fa&#x27;, &#x27;Persian&#x27;),
+ (&#x27;fi&#x27;, &#x27;Finnish&#x27;),
+ (&#x27;fr&#x27;, &#x27;French&#x27;),
+ (&#x27;fy&#x27;, &#x27;Frisian&#x27;),
+ (&#x27;ga&#x27;, &#x27;Irish&#x27;),
+ (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;),
+ (&#x27;gl&#x27;, &#x27;Galician&#x27;),
+ (&#x27;he&#x27;, &#x27;Hebrew&#x27;),
+ (&#x27;hi&#x27;, &#x27;Hindi&#x27;),
+ (&#x27;hr&#x27;, &#x27;Croatian&#x27;),
+ (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;),
+ (&#x27;hu&#x27;, &#x27;Hungarian&#x27;),
+ (&#x27;hy&#x27;, &#x27;Armenian&#x27;),
+ (&#x27;ia&#x27;, &#x27;Interlingua&#x27;),
+ (&#x27;id&#x27;, &#x27;Indonesian&#x27;),
+ (&#x27;ig&#x27;, &#x27;Igbo&#x27;),
+ (&#x27;io&#x27;, &#x27;Ido&#x27;),
+ (&#x27;is&#x27;, &#x27;Icelandic&#x27;),
+ (&#x27;it&#x27;, &#x27;Italian&#x27;),
+ (&#x27;ja&#x27;, &#x27;Japanese&#x27;),
+ (&#x27;ka&#x27;, &#x27;Georgian&#x27;),
+ (&#x27;kab&#x27;, &#x27;Kabyle&#x27;),
+ (&#x27;kk&#x27;, &#x27;Kazakh&#x27;),
+ (&#x27;km&#x27;, &#x27;Khmer&#x27;),
+ (&#x27;kn&#x27;, &#x27;Kannada&#x27;),
+ (&#x27;ko&#x27;, &#x27;Korean&#x27;),
+ (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;),
+ (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;),
+ (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;),
+ (&#x27;lv&#x27;, &#x27;Latvian&#x27;),
+ (&#x27;mk&#x27;, &#x27;Macedonian&#x27;),
+ (&#x27;ml&#x27;, &#x27;Malayalam&#x27;),
+ (&#x27;mn&#x27;, &#x27;Mongolian&#x27;),
+ (&#x27;mr&#x27;, &#x27;Marathi&#x27;),
+ (&#x27;ms&#x27;, &#x27;Malay&#x27;),
+ (&#x27;my&#x27;, &#x27;Burmese&#x27;),
+ (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;),
+ (&#x27;ne&#x27;, &#x27;Nepali&#x27;),
+ (&#x27;nl&#x27;, &#x27;Dutch&#x27;),
+ (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;),
+ (&#x27;os&#x27;, &#x27;Ossetic&#x27;),
+ (&#x27;pa&#x27;, &#x27;Punjabi&#x27;),
+ (&#x27;pl&#x27;, &#x27;Polish&#x27;),
+ (&#x27;pt&#x27;, &#x27;Portuguese&#x27;),
+ (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;),
+ (&#x27;ro&#x27;, &#x27;Romanian&#x27;),
+ (&#x27;ru&#x27;, &#x27;Russian&#x27;),
+ (&#x27;sk&#x27;, &#x27;Slovak&#x27;),
+ (&#x27;sl&#x27;, &#x27;Slovenian&#x27;),
+ (&#x27;sq&#x27;, &#x27;Albanian&#x27;),
+ (&#x27;sr&#x27;, &#x27;Serbian&#x27;),
+ (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;),
+ (&#x27;sv&#x27;, &#x27;Swedish&#x27;),
+ (&#x27;sw&#x27;, &#x27;Swahili&#x27;),
+ (&#x27;ta&#x27;, &#x27;Tamil&#x27;),
+ (&#x27;te&#x27;, &#x27;Telugu&#x27;),
+ (&#x27;tg&#x27;, &#x27;Tajik&#x27;),
+ (&#x27;th&#x27;, &#x27;Thai&#x27;),
+ (&#x27;tk&#x27;, &#x27;Turkmen&#x27;),
+ (&#x27;tr&#x27;, &#x27;Turkish&#x27;),
+ (&#x27;tt&#x27;, &#x27;Tatar&#x27;),
+ (&#x27;udm&#x27;, &#x27;Udmurt&#x27;),
+ (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;),
+ (&#x27;ur&#x27;, &#x27;Urdu&#x27;),
+ (&#x27;uz&#x27;, &#x27;Uzbek&#x27;),
+ (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;),
+ (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;),
+ (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>[&#x27;he&#x27;, &#x27;ar&#x27;, &#x27;ar-dz&#x27;, &#x27;ckb&#x27;, &#x27;fa&#x27;, &#x27;ur&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#x27;en-us&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;django_language&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_SAMESITE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#x27;logging.config.dictConfig&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#x27;/accounts/profile/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#x27;/accounts/login/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_REDIRECT_URL</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.messages.storage.fallback.FallbackStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIDDLEWARE</td>
+          <td class="code"><pre>[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#x27;F j&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#x27;GOSMIC_Z_server.urls&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY_FALLBACKS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_CROSS_ORIGIN_OPENER_POLICY</td>
+          <td class="code"><pre>&#x27;same-origin&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_PRELOAD</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_HSTS_SECONDS</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REDIRECT_EXEMPT</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_REFERRER_POLICY</td>
+          <td class="code"><pre>&#x27;same-origin&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_HOST</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECURE_SSL_REDIRECT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#x27;root@localhost&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;sessionid&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.backends.db&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.serializers.JSONSerializer&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;GOSMIC_Z_server.settings&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.signing.TimestampSigner&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>[&#x27;django.contrib.staticfiles.finders.FileSystemFinder&#x27;,
+ &#x27;django.contrib.staticfiles.finders.AppDirectoriesFinder&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.staticfiles.storage.StaticFilesStorage&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#x27;/static/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STORAGES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;BACKEND&#x27;: &#x27;django.core.files.storage.FileSystemStorage&#x27;},
+ &#x27;staticfiles&#x27;: {&#x27;BACKEND&#x27;: &#x27;django.contrib.staticfiles.storage.StaticFilesStorage&#x27;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATES</td>
+          <td class="code"><pre>[{&#x27;APP_DIRS&#x27;: True,
+  &#x27;BACKEND&#x27;: &#x27;django.template.backends.django.DjangoTemplates&#x27;,
+  &#x27;DIRS&#x27;: [],
+  &#x27;OPTIONS&#x27;: {&#x27;context_processors&#x27;: [&#x27;django.template.context_processors.debug&#x27;,
+                                     &#x27;django.template.context_processors.request&#x27;,
+                                     &#x27;django.contrib.auth.context_processors.auth&#x27;,
+                                     &#x27;django.contrib.messages.context_processors.messages&#x27;]}}]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#x27;django.test.runner.DiscoverRunner&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#x27;,&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#x27;P&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%H:%M:%S&#x27;, &#x27;%H:%M:%S.%f&#x27;, &#x27;%H:%M&#x27;]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#x27;UTC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_DEPRECATED_PYTZ</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_PORT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#x27;GOSMIC_Z_server.wsgi.application&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#x27;DENY&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#x27;F Y&#x27;</pre></td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+  <div id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard page generated by the handler for this status code.
+    </p>
+  </div>
+
+</body>
+</html>

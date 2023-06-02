@@ -12,3 +12,6 @@ protobuf
 tqdm
 django
 djangorestframework
+faster-whisper
+python-dotenv
+openai
