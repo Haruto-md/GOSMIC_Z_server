@@ -1,20 +1,17 @@
-from io import BytesIO
-import wave
-from vits.infer import AudioInferencer
-from django.http import StreamingHttpResponse,JsonResponse
+import numpy as np
+import json
+import scipy.io.wavfile as wf
+from django.http import JsonResponse,StreamingHttpResponse
 from rest_framework.views import APIView
-
-from faster_whisper import WhisperModel
 import openai
 import dotenv
 import os
 dotenv.load_dotenv()
-openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.debug = False
 
 #modelをロード
-audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
-whisper_model = WhisperModel("small",download_root="pretrained_models",compute_type="int8")
-
+from manage import audioInferer,whisper_model
 
 class TTSView(APIView):
     def post(self, request, format=None):
@@ -32,76 +29,74 @@ class TTSView(APIView):
 
         return JsonResponse({"audio_data":audio_data.tolist(),"sampling_rate":sampling_rate})
 
-
 class Whisper_ChatGPT_TTS(APIView):
-    async def post(self, request, format=None):
-        # 音声データをストリーミングで受け取る
-        audio_data = b""
-        async for chunk in request.stream():
-            audio_data += chunk
+    def post(self, request, format=None):
+        def response_generator():
+            # 音声データをストリーミングで受け取る
+            binary_data = b""
+            print(request)
+            for chunk in request.stream:
+                binary_data += chunk
+            # 区切り文字列のバイナリエンコード
+            TA_delimiter_binary = "====Text_Audio_Delimiter===".encode("utf-8")
+            AS_delimiter_binary = "====Audio_SR_Delimiter===".encode("utf-8")
+            END_binary_code = "===END===".encode("utf-8")
+            # データの分割
+            text_binary, audio_binary = binary_data.split(TA_delimiter_binary, 1)
+            audio_data_binary, sampling_rate = audio_binary.split(AS_delimiter_binary, 1)
+            # 音声データの復元
+            
+            audio_data = np.frombuffer(audio_data_binary,dtype=np.float32)
+            sampling_rate = int.from_bytes(sampling_rate,byteorder="big")
+            # テキストデータの復元
+            chat_data = json.loads(text_binary.decode('utf-8'))
+            print("audio_data:", len(audio_data))
+            print("sampling_rate:", sampling_rate)
+            wf.write("temp.wav" ,rate = sampling_rate,data = audio_data)
+            print(chat_data)
 
-        # 音声データを文字起こしする
-        transcription = self.whisper_transcribe(audio_data)
-
-        # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
-        async with self.openai_request(transcription) as response_stream:
-            response_text = await self.read_stream_response(response_stream)
-
-        # GPT-3.5 Turboのレスポンスを使って音声データを生成する
-        response_audio_data, sampling_rate = await self.stream_infer_audio(response_text)
-
-
-        # 音声データをwav形式で保存する
-        output_audio = BytesIO()
-        with wave.open(output_audio, 'wb') as wav_file:
-            wav_file.setnchannels(1)  # モノラル
-            wav_file.setsampwidth(2)  # 16ビット
-            wav_file.setframerate(sampling_rate)
-            wav_file.writeframes(response_audio_data.tobytes())
-
-        # 音声データをストリーミングレスポンスとして返す
-        response = StreamingHttpResponse(output_audio.getvalue(), content_type='audio/wav')
+            # 同期処理
+            # 音声データを文字起こしする
+            transcription = self.whisper_transcribe(audio_data)
+            print("transcription:",transcription)
+            # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
+            
+            def getSentenceOfOpenAIStream(chat_data:dict,transcription:str):
+            
+                response_stream = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    temperature=0.7,
+                    max_tokens=100,
+                    messages= chat_data + [{"role": "user", "content": transcription}],
+                    stream=True
+                )
+                acumulatedResponse = ""
+                for item in response_stream:
+                    choice = item['choices'][0]
+                    if choice["finish_reason"]=="stop":
+                        break
+                    if not "role" in choice["delta"].keys():
+                        acumulatedResponse += choice["delta"]["content"]
+                    if "。" in acumulatedResponse or "、" in acumulatedResponse:
+                        yield acumulatedResponse
+                        acumulatedResponse=""
+            # 非同期?
+            # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
+            for slicedResponse in getSentenceOfOpenAIStream(chat_data=chat_data,transcription=transcription):
+                print(slicedResponse)
+                response_text = slicedResponse
+                response_audio_data, sampling_rate = audioInferer.infer_audio(response_text,42)
+                yield  response_audio_data.tobytes() + AS_delimiter_binary + sampling_rate.to_bytes(4,"big") + END_binary_code
+                
+        
+        response = StreamingHttpResponse(response_generator(), content_type='audio/wav')
         response['Content-Disposition'] = 'attachment; filename="audio.wav"'
         return response
 
-    def whisper_transcribe(audioData):
-        segments, info = whisper_model.transcribe(audioData, language="ja", beam_size=5)
+    def whisper_transcribe(self, audioData):
+        segments, info = whisper_model.transcribe(audio=audioData, language="ja", beam_size=5)
         transcription = " ".join([seg.text  for seg in segments])
         return transcription
-    
-    async def openai_request(self, text,chat_data):
-        # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る処理を実装する
-        # このメソッドは非同期でレスポンスを返す
-
-        # 仮の実装: ダミーレスポンスストリームを返す
-        response = openai.ChatCompletion.create(engine="gpt-3.5-turbo",
-                                    temperature=0.7,
-                                    max_tokens = 50,
-                                    messages=chat_data.append({"role":"user","content":text}),
-                                    stream = True
-                                    )
-        return response
-
-    async def read_stream_response(self, response_stream):
-        # ストリームレスポンスを受け取り、テキストデータを読み取る処理を実装する
-        # このメソッドは非同期でレスポンステキストを返す
-
-        # 仮の実装: レスポンスストリームを文字列に連結する
-        response_text = " ".join(response_stream)
-        return response_text
-
-    async def stream_infer_audio(self, text):
-        # テキストを音声データに変換する処理を実装する
-        # このメソッドは非同期で音声データとサンプリングレートを返す
-        
-        audio_data, sampling_rate = audioInferer.infer_audio(text, speaker_id=42)
-        return audio_data, sampling_rate
-
-    def stream_audio_data(self, audio_data):
-        # 音声データをストリームとして返すジェネレータ関数を実装する
-        # このメソッドは音声データを一定のチャンクごとに返す
-
-        # 仮の実装: 音声データをチャンクごとに返す
-        chunk_size = 512
-        for i in range(0, len(audio_data), chunk_size):
-            yield audio_data[i:i+chunk_size]
+                
+    async def awaitAudioInfer(self,response_text):
+        return await audioInferer.infer_audio(response_text)

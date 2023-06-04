@@ -3,6 +3,12 @@
 import os
 import sys
 
+from vits.infer import AudioInferencer
+from faster_whisper import WhisperModel
+#modelをロード
+audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
+whisper_model = WhisperModel("small",download_root="pretrained_models",compute_type="int8",device="cpu")
+print("model loaded")
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GOSMIC_Z_server.settings')

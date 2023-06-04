@@ -20,7 +20,9 @@ INSTALLED_APPS = [
 ]
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
-DATA_UPLOAD_MAX_NUMBER_FIELDS = 2000
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 1123890
+
+TRACEMALLOC = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +53,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'GOSMIC_Z_server.wsgi.application'
+ASGI_APPLICATION = 'GOSMIC_Z_server.asgi.application'
 
 DATABASES = {
     'default': {
