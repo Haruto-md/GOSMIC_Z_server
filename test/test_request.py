@@ -28,7 +28,7 @@ url = 'http://localhost:8000/myapp/models/Whisper_ChatGPT_TTS/'  # TTSエンド�
 # WAVファイルから音声データとサンプリングレートを取得
 sampling_rate, audio_data = read("test\\returned_audiofile.wav")
 audio_data = audio_data.astype(np.float32)  # 音声データを正規化
-chat_data=[{"role":"user","content":"""今から以下の情報を元にアリアンナとして会話してください。一つ一つのセリフは簡潔に、素っ気なさを感じさせるようにしてください。 
+chat_data='''[{"role":"user","content":"""今から以下の情報を元にアリアンナとして会話してください。一つ一つのセリフは簡潔に、素っ気なさを感じさせるようにしてください。
 名前:
 アリアンナ・ウィンドフェザー
 性格・信条:
@@ -43,13 +43,13 @@ chat_data=[{"role":"user","content":"""今から以下の情報を元にアリ�
 「私は魔法使いとして、自分の使命を果たすために、常に自己研鑽を怠らないよう心がけています。」
 「魔法を使うことは、大きな責任が伴います。私はその重みを十分に理解しています。」
 「魔法を使うことは、人々の命を守るための手段であることを忘れてはなりません。」
-「魔法の力を使うことは、常に相手に対して優位に立つことを意味するわけではありません。」"""},]
+「魔法の力を使うことは、常に相手に対して優位に立つことを意味するわけではありません。」"""},]'''
 
 # 音声データのバイナリエンコード
 audio_binary = audio_data.tobytes()
 
 # テキストデータのバイナリエンコード
-text_binary = json.dumps(chat_data).encode('utf-8')
+text_binary = chat_data.encode('utf-8')
 
 # 区切り文字列のバイナリエンコード
 TA_delimiter_binary = "====Text_Audio_Delimiter===".encode("utf-8")

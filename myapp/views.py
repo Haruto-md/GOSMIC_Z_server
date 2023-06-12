@@ -38,21 +38,22 @@ class Whisper_ChatGPT_TTS(APIView):
             for chunk in request.stream:
                 binary_data += chunk
             # 区切り文字列のバイナリエンコード
-            TA_delimiter_binary = "====Text_Audio_Delimiter===".encode("utf-8")
-            AS_delimiter_binary = "====Audio_SR_Delimiter===".encode("utf-8")
+            TA_delimiter_binary = "===Text_Audio_Delimiter===".encode("utf-8")
+            AS_delimiter_binary = "===Audio_SR_Delimiter===".encode("utf-8")
             END_binary_code = "===END===".encode("utf-8")
             # データの分割
             text_binary, audio_binary = binary_data.split(TA_delimiter_binary, 1)
-            audio_data_binary, sampling_rate = audio_binary.split(AS_delimiter_binary, 1)
+            binary_audio_data, binary_sampling_rate = audio_binary.split(AS_delimiter_binary, 1)
+            print("binary_audio_data:",len(binary_audio_data))
+            print("binary_sampling_rate:",binary_sampling_rate)
             # 音声データの復元
-            
-            audio_data = np.frombuffer(audio_data_binary,dtype=np.float32)
-            sampling_rate = int.from_bytes(sampling_rate,byteorder="big")
+            audio_data = np.frombuffer(binary_audio_data,dtype=np.float32)
+            sampling_rate = int.from_bytes(binary_sampling_rate,byteorder="big")
             # テキストデータの復元
-            chat_data = json.loads(text_binary.decode('utf-8'))
+            chat_data = [(dict(text_binary.decode('utf-8')[3:-3])).split(",")]# '''{content0},{content1}'''
             print("audio_data:", len(audio_data))
             print("sampling_rate:", sampling_rate)
-            wf.write("temp.wav" ,rate = sampling_rate,data = audio_data)
+            wf.write("test/temp.wav" ,rate = sampling_rate,data = audio_data)
             print(chat_data)
 
             # 同期処理
