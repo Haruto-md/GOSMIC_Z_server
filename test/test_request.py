@@ -2,28 +2,10 @@ import requests
 from scipy.io.wavfile import read,write
 import numpy as np
 
-url = 'http://localhost:8000/myapp/models/TTS/'  # TTSエンドポイントのURL
-
-input_text = "世界は物理法則によって支配されているのです。"
-speaker_id = 42
-
-data = {
-    "input_text": input_text,
-    "speaker_id":speaker_id
-}
-
-response = requests.post(url, data=data)
-
-json_response = response.json()
-audio_data = np.array(json_response["audio_data"]).astype(np.float32)
-print("saved as test/returned_audiofile.wav")
-write("test/returned_audiofile.wav",json_response["sampling_rate"],audio_data)
-
-
 url = 'http://localhost:8000/myapp/models/Whisper_ChatGPT_TTS/'  # TTSエンドポイントのURL
 
 # WAVファイルから音声データとサンプリングレートを取得
-sampling_rate, audio_data = read("test\\returned_audiofile.wav")
+sampling_rate, audio_data = read("test\\sample.wav")
 audio_data = audio_data.astype(np.float32)  # 音声データを正規化
 data = {"role1":"user",
         "content1":"""今から以下の情報を元にアリアンナとして会話してください。一つ一つのセリフは簡潔に、素っ気なさを感じさせるようにしてください。
@@ -65,7 +47,7 @@ files = {
 import time
 END_binary_code="aaaabbbb".encode("utf-8")
 AS_delimiter_binary="bbbbaaaa".encode("utf-8")
-save_filename="ai_response"
+save_filename="test/ai_response"
 with requests.Session() as session:
     file_num = 0
     start_time = time.time()

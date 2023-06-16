@@ -1,6 +1,6 @@
 import numpy as np
 import scipy.io.wavfile as wf
-from django.http import JsonResponse,StreamingHttpResponse
+from django.http import StreamingHttpResponse
 from django.http.multipartparser import MultiPartParser
 from rest_framework.views import APIView
 import openai
@@ -15,22 +15,6 @@ AS_delimiter_binary="bbbbaaaa".encode("utf-8")
 
 #modelをロード
 from manage import audioInferer,whisper_model
-
-class TTSView(APIView):
-    def post(self, request, format=None):
-        input_text = request.data.get('input_text')
-        speaker_id = request.data.get('speaker_id')
-
-        # 必要な場合、model_pathの存在をチェックします
-        if speaker_id:
-            # model_pathが指定されている場合の処理
-            speaker_id = int(speaker_id)
-            audio_data, sampling_rate = audioInferer.infer_audio(input_text, speaker_id)
-        else:
-            # model_pathが指定されていない場合の処理
-            audio_data, sampling_rate = audioInferer.infer_audio(input_text,42)
-
-        return JsonResponse({"audio_data":audio_data.tolist(),"sampling_rate":sampling_rate})
 
 class Whisper_ChatGPT_TTS(APIView):
     def post(self, request, format=None):
