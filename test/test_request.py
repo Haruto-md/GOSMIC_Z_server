@@ -45,8 +45,8 @@ files = {
     'audio_data': ("audio_data",audio_binary,"audio/wav")
 }
 import time
-END_binary_code="aaaabbbb".encode("utf-8")
 AS_delimiter_binary="bbbbaaaa".encode("utf-8")
+END_binary_code="aaaabbbb".encode("utf-8")
 save_filename="test/ai_response"
 with requests.Session() as session:
     file_num = 0

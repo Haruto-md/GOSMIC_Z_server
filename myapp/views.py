@@ -3,15 +3,14 @@ import scipy.io.wavfile as wf
 from django.http import StreamingHttpResponse
 from django.http.multipartparser import MultiPartParser
 from rest_framework.views import APIView
+from time import sleep
+import json
 import openai
 import dotenv
 import os
 dotenv.load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.debug = False
-
-END_binary_code="aaaabbbb".encode("utf-8")
-AS_delimiter_binary="bbbbaaaa".encode("utf-8")
 
 #modelをロード
 from manage import audioInferer,whisper_model
@@ -32,6 +31,8 @@ class Whisper_ChatGPT_TTS(APIView):
                     i+=1
                 elif key=="sampling_rate":
                     sampling_rate = int(value)
+                else:
+                    print("[ERROR] else.")
 
             # ファイルの処理
             for key, uploaded_file in files.items():
@@ -60,27 +61,26 @@ class Whisper_ChatGPT_TTS(APIView):
                 acumulatedResponse = ""
                 for item in response_stream:
                     choice = item['choices'][0]
-                    if choice["finish_reason"] == "stop":
-                        print("stop successfully.")
-                        break
-                    if choice["finish_reason"] == "length":
-                        print("tokens expired")
-                        break
-                    if not "role" in choice["delta"].keys():
-                        acumulatedResponse += choice["delta"]["content"]
-                    if "。" in acumulatedResponse or "、" in acumulatedResponse:
-                        yield acumulatedResponse
-                        acumulatedResponse=""
+                    if choice["finish_reason"] is None:
+                        if not "role" in choice["delta"].keys():
+                            acumulatedResponse += choice["delta"]["content"]
+                        if "。" in acumulatedResponse or "、" in acumulatedResponse:
+                            yield acumulatedResponse
+                            acumulatedResponse=""
+                    else:
+                        print(choice["finish_reason"])
             # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
             for slicedResponse in getSentenceOfOpenAIStream(chat_data=chat_data,transcription=transcription):
                 print(slicedResponse)
+                print("sleep 3 sec.")
+                sleep(3)
                 response_text = slicedResponse
-                response_audio_data, sampling_rate = audioInferer.infer_audio(response_text,42)
+                response_audio_data, _ = audioInferer.infer_audio(response_text,42)
                 print("yielding response slice")
-                yield  response_audio_data.tobytes() + AS_delimiter_binary + sampling_rate.to_bytes(4,"big") + END_binary_code
-
-        response = StreamingHttpResponse(response_generator(), content_type='audio/wav')
-        response['Content-Disposition'] = 'attachment; filename="audio.wav"'
+                yielding_component = response_audio_data.tobytes()
+                yield yielding_component
+                
+        response = StreamingHttpResponse(response_generator(), content_type='text/json')
         return response
 
     def whisper_transcribe(self, audioData):
@@ -90,3 +90,4 @@ class Whisper_ChatGPT_TTS(APIView):
 
     async def awaitAudioInfer(self,response_text):
         return await audioInferer.infer_audio(response_text)
+    
