@@ -22,9 +22,6 @@ if exist "*.pth" (
 )
 popd
 
-REM Now Starting Server
 python manage.py runserver
-REM daphne -b 0.0.0.0 -p 8000 GOSMIC_Z_server.asgi:application
-
 deactivate
 pause

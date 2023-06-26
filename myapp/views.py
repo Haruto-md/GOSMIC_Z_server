@@ -3,8 +3,6 @@ import scipy.io.wavfile as wf
 from django.http import StreamingHttpResponse
 from django.http.multipartparser import MultiPartParser
 from rest_framework.views import APIView
-from time import sleep
-import json
 import openai
 import dotenv
 import os
@@ -72,14 +70,12 @@ class Whisper_ChatGPT_TTS(APIView):
             # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
             for slicedResponse in getSentenceOfOpenAIStream(chat_data=chat_data,transcription=transcription):
                 print(slicedResponse)
-                print("sleep 3 sec.")
-                sleep(3)
                 response_text = slicedResponse
                 response_audio_data, _ = audioInferer.infer_audio(response_text,42)
                 print("yielding response slice")
                 yielding_component = response_audio_data.tobytes()
                 yield yielding_component
-                
+
         response = StreamingHttpResponse(response_generator(), content_type='text/json')
         return response
 
@@ -90,4 +86,3 @@ class Whisper_ChatGPT_TTS(APIView):
 
     async def awaitAudioInfer(self,response_text):
         return await audioInferer.infer_audio(response_text)
-    
