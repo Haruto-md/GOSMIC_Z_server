@@ -2,7 +2,7 @@ REM Are CMake, python included in Environmental variables?
 REM Setting Up Environment
 python -m venv .venv
 
-REM venv環境の有効化
+REM venv activation
 call .venv\Scripts\activate
 where python
 
@@ -14,7 +14,7 @@ REM verifiy if pretrained model exists
 mkdir pretrained_models
 pushd pretrained_models
 if exist "*.pth" (
-    echo .pthファイルが存在します
+    echo .pth exists already
 ) else (
     echo Please Download model.
     pause
