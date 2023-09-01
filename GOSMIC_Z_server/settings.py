@@ -19,6 +19,11 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "https://haruto-md.github.io",
+    "http://localhost:5000"
+]
+
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 1123890
 
@@ -32,6 +37,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'GOSMIC_Z_server.urls'

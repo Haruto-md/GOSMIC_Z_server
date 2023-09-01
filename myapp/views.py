@@ -37,17 +37,14 @@ class Whisper_ChatGPT_TTS(APIView):
                 if key=="audio_data":
                     audio_binary_data = uploaded_file.read()
             audio_data =np.frombuffer(audio_binary_data,dtype=np.float32)
-            print("chat_data",chat_data)
-            print("audio_data:", audio_data)
-            print("sampling_rate:", sampling_rate)
-            wf.write("test/temp.wav" ,rate = sampling_rate,data = audio_data)
+            wf.write("tempFiles/temp.wav" ,rate = sampling_rate,data = audio_data)
 
             # 同期処理
             # 音声データを文字起こしする
-            transcription = self.whisper_transcribe(audio_data)
+            transcription = self.whisper_transcribe("tempFiles/temp.wav")
             print("transcription:",transcription)
             # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
-            
+
             def getSentenceOfOpenAIStream(chat_data:dict,transcription:str):
 
                 response_stream = openai.ChatCompletion.create(
@@ -61,7 +58,7 @@ class Whisper_ChatGPT_TTS(APIView):
                     choice = item['choices'][0]
                     if choice["finish_reason"] is None:
                         if not "role" in choice["delta"].keys():
-                            acumulatedResponse += choice["delta"]["content"]
+                            acumulatedResponse += choice["delta"]["content"].replace("「","").replace("」","")
                         if "。" in acumulatedResponse or "、" in acumulatedResponse:
                             yield acumulatedResponse
                             acumulatedResponse=""
@@ -79,8 +76,8 @@ class Whisper_ChatGPT_TTS(APIView):
         response = StreamingHttpResponse(response_generator(), content_type='text/json')
         return response
 
-    def whisper_transcribe(self, audioData):
-        segments, info = whisper_model.transcribe(audio=audioData, language="ja", beam_size=5)
+    def whisper_transcribe(self, audioPath):
+        segments, info = whisper_model.transcribe(audio=audioPath, language="ja", beam_size=3,temperature=0.2)
         transcription = " ".join([seg.text  for seg in segments])
         return transcription
 

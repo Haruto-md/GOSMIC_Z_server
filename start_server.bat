@@ -1,27 +1,41 @@
-REM Are CMake, python included in Environmental variables?
-REM Setting Up Environment
-python -m venv .venv
+@echo off
+set "venv_dir=.venv"
+set "pretrained_models_dir=pretrained_models"
 
-REM venv activation
-call .venv\Scripts\activate
+REM Check if CMake and Python are included in Environmental variables
+where cmake > nul 2>&1
+where python > nul 2>&1
+if %errorlevel% neq 0 (
+    echo CMake or Python not found in Environmental variables.
+    exit /b 1
+)
+
+REM Setting Up Environment
+if not exist %venv_dir% (
+    python -m venv %venv_dir%
+)
+
+REM Activate virtual environment
+call %venv_dir%\Scripts\activate
 where python
 
-REM install python packages
+REM Install Python packages
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
-REM verifiy if pretrained model exists
-mkdir pretrained_models
-pushd pretrained_models
-if exist "*.pth" (
-    echo .pth exists already
-) else (
-    echo Please Download model.
+REM Verify if pretrained model exists
+if not exist %pretrained_models_dir%\*.pth (
+    echo Pretrained model not found. Please download the model.
     pause
-    exit
+    exit /b 1
+) else (
+    echo Pretrained model found.
 )
-popd
 
+REM Run the Django server
 python manage.py runserver
+
+REM Deactivate virtual environment
 deactivate
+
 pause
