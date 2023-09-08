@@ -15,6 +15,4 @@ djangorestframework
 faster-whisper
 python-dotenv
 openai
-httpx
-django-async-stream
-daphne
+django-cors-headers
