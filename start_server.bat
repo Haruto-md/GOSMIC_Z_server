@@ -33,7 +33,7 @@ if not exist %pretrained_models_dir%\*.pth (
 )
 
 REM Run the Django server
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000
 
 REM Deactivate virtual environment
 deactivate

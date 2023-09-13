@@ -6,7 +6,9 @@ SECRET_KEY = 'your_secret_key'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "10.10.164.221"#kyudai.kitenet for test
+    ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
