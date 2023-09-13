@@ -2,13 +2,16 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+import torch.cuda as cd
 from vits.infer import AudioInferencer
 from faster_whisper import WhisperModel
+
+device = "cuda" if cd.is_available() else "cpu"
 #modelをロード
 audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
-whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device="auto")
-print("[INFO] models were loaded.")
+whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device=device)
+print("model loaded")
+print("cuda available? -> "+device)
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GOSMIC_Z_server.settings')

@@ -4,8 +4,7 @@ matplotlib
 numpy
 scipy
 tensorboard
-torch==1.13.1
-torchvision
+torch --index-url https://download.pytorch.org/whl/cu113
 unidecode
 pyopenjtalk
 protobuf
