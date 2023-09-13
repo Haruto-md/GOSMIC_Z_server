@@ -21,7 +21,8 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://haruto-md.github.io",
-    "http://localhost:5000"
+    "http://localhost:5000",
+    "https://gosmic.space"
 ]
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600

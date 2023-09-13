@@ -16,7 +16,7 @@ class AudioInferencer():
     def __init__(self,modelPath) -> None:
         self.modelPath = modelPath
         self.load_model(self.modelPath)
-        
+
     def load_model(self,modelPath):
         self.hps = utils.get_hparams_from_file("pretrained_models\configs\config_Einstein.json")
         self.net_g = SynthesizerTrn(
@@ -30,9 +30,9 @@ class AudioInferencer():
             _ = utils.load_checkpoint(modelPath, self.net_g, None)
         except:
             print("[ERROR]model name is different. Can't load checkpoint.")
-            
+
     def infer_audio(self,text,speaker_id=42):
-        
+
         stn_tst = get_text(text, self.hps)
         with torch.no_grad():
             x_tst = stn_tst.unsqueeze(0)
