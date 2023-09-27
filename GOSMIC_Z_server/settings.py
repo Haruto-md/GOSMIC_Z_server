@@ -1,13 +1,19 @@
 import os
+import dotenv
+dotenv.load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'your_secret_key'
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 DEBUG = True
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+
 ALLOWED_HOSTS = [
-    "10.10.164.221"#kyudai.kitenet for test
+    "10.10.164.221",
+    "125.102.193.61"
     ]
 
 INSTALLED_APPS = [
@@ -19,12 +25,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'rest_framework',
+    'sslserver',
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "https://haruto-md.github.io",
     "http://localhost:5000",
-    "https://gosmic.space"
+    "https://gosmic.space",
 ]
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600

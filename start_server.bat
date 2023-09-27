@@ -1,4 +1,7 @@
 @echo off
+
+echo Loading environment variables from .env file...
+
 set "venv_dir=.venv"
 set "pretrained_models_dir=pretrained_models"
 
@@ -33,7 +36,7 @@ if not exist %pretrained_models_dir%\*.pth (
 )
 
 REM Run the Django server
-python manage.py runserver 0.0.0.0:8000
+python manage.py runsslserver 125.102.193.61:8000
 
 REM Deactivate virtual environment
 deactivate

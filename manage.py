@@ -8,8 +8,8 @@ from faster_whisper import WhisperModel
 
 device = "cuda" if cd.is_available() else "cpu"
 #modelをロード
-audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
 whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device=device)
+audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
 print("model loaded")
 print("cuda available? -> "+device)
 def main():

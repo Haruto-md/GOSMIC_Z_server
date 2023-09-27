@@ -15,3 +15,5 @@ faster-whisper
 python-dotenv
 openai
 django-cors-headers
+django-sslserver
+decouple
