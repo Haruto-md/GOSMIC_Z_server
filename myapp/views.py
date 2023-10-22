@@ -1,18 +1,25 @@
 import numpy as np
 import scipy.io.wavfile as wf
-import socket
-from django.http import StreamingHttpResponse,JsonResponse,HttpResponse
+import time
+from django.http import StreamingHttpResponse,HttpResponse
 from django.http.multipartparser import MultiPartParser
 from rest_framework.views import APIView
+import json
 import openai
 import dotenv
 import os
+import glob
 dotenv.load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.debug = False
 
 #modelをロード
 from manage import audioInferer,whisper_model
+
+def whisper_transcribe(audioPath):
+    segments, info = whisper_model.transcribe(audio=audioPath, language="ja", beam_size=3,temperature=0.2)
+    transcription = " ".join([seg.text  for seg in segments])
+    return transcription
 
 class SpeechToText(APIView):
     def post(self,request,format=None):
@@ -39,14 +46,10 @@ class SpeechToText(APIView):
         # JSONレスポンスを作成
         response_data = {"transcription": transcription}
         # JSONレスポンスを返す
-        return JsonResponse(response_data)
+        return HttpResponse(json.loads(response_data))
 
 class Chat(APIView):
     def post(self, request, format=None):
-        # 以下の部分で指定のエンドポイントとポートに接続します
-        target_host = "localhost"  # サーバーのホスト名またはIPアドレス
-        target_port = "5001"  # サーバーのポート番号
-
         parser = MultiPartParser(request.META, request, request.upload_handlers)
         # フォームデータの処理
         post, files = parser.parse()
@@ -57,15 +60,11 @@ class Chat(APIView):
             elif "content" in key:
                 chat_data[-1]["content"] = str(value)
             elif "prompt" in key:
-                prompt = str(value)
-            elif "host" in key:
-                target_host = str(value)
-            elif "port" in key:
-                target_port = str(value)
+                prompt = value
+            elif "temp_token" in key:
+                temp_token = value
             else:
                 print("[ERROR] else.")
-
-        response_data = {"message": "Successful"}
 
         # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る処理をそのまま含める
         response_stream = openai.ChatCompletion.create(
@@ -74,29 +73,69 @@ class Chat(APIView):
             messages=chat_data + [{"role": "user", "content": prompt}],
             stream=True
         )
-        resultingText = ""
+        
         acumulatedResponse = ""
+        os.mkdir(f"./tempFiles/chat/{temp_token}")
+        resulting_sentences = []
         for item in response_stream:
             choice = item['choices'][0]
             if choice["finish_reason"] is None:
                 if not "role" in choice["delta"].keys():
                     acumulatedResponse += choice["delta"]["content"].replace("「", "").replace("」", "")
                 if "。" in acumulatedResponse or "、" in acumulatedResponse:
-                    # ここでテキストデータを指定のエンドポイントとポートに送信する
-                    send_data_to_server(target_host, target_port, acumulatedResponse.encode("utf-8"))
-                    resultingText += acumulatedResponse
+                    resulting_sentences.append(acumulatedResponse)
+                    with open(f"./tempFiles/chat/{temp_token}/{len(resulting_sentences)}","w",encoding="utf-8") as f:
+                        temp_json_dict = {
+                            "response":acumulatedResponse,
+                            "response_index":len(resulting_sentences)
+                        }
+                        temp_json_data = json.loads(temp_json_dict)
+                        f.write(temp_json_data)
                     acumulatedResponse = ""
             else:
                 print("[Info] Finished Chatting ,for" + choice["finish_reason"])
+                response_data = json.loads({
+                    "finish_reason":choice["finish_reason"],
+                    "resulting_sentences":" ".join(resulting_sentences)
+                })
 
-        return HttpResponse(resultingText,type="text/plain")
+        return HttpResponse(response_data,type="text/json")
 
-def send_data_to_server(target_host, target_port, binaryData):
-    # ソケット通信を設定してテキストデータを送信する関数
-    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client.connect((target_host, target_port))
-    client.send(binaryData)
-    client.close()
+class GetNew(APIView):
+    def post(self,request,format=None):
+        parser = MultiPartParser(request.META, request, request.upload_handlers)
+        # フォームデータの処理
+        post, files = parser.parse()
+        for key, value in post.items():
+            if key=="temp_token":
+                temp_token = value
+            else:
+                print("[ERROR] else.")
+        
+        response_josn = {
+            "state":"",
+            "content":{
+                "response":"",
+                "response_index":0    
+                }
+            }
+        
+        if not os.path.exists(f"./tempFiles/chat/{temp_token}"):
+            response_josn["state"] = "Failed"
+            response_josn["content"] = "No such token"
+            return HttpResponse(json.loads(response_josn),type="text/json")
+        files = glob.glob(f"./tempFiles/chat/{temp_token}/*")
+        if len(files) == 0:
+            response_josn["state"] = "Wait"
+            response_josn["content"] = "Chat not saved yet."
+            return HttpResponse(json.loads(response_josn),type="text/json")
+        newFile = files[0]
+        with open(newFile,"r",encoding="utf-8") as f:
+            chat_delta_json = f.read()
+        os.remove(newFile)
+        response_josn["state"] = "Success"
+        response_josn["content"] = chat_delta_json
+        return HttpResponse(json.loads(response_josn),type="text/json")
 
 class TextToSpeech(APIView):
     def post(self,request,format=None):
@@ -108,9 +147,8 @@ class TextToSpeech(APIView):
                 text = str(value)
             else:
                 print("[ERROR] else.")
-
+        print(f"generate audio file :'{text}'")
         response_audio_data, _ = audioInferer.infer_audio(text,42)
-        print("audioResponse")
         response_audio_byte_data = response_audio_data.tobytes()
         return HttpResponse(response_audio_byte_data,type="application/octet-stream")
 
