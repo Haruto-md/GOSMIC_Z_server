@@ -142,7 +142,6 @@ class Whisper_ChatGPT_TTS(APIView):
 
             # 音声データを文字起こしする
             transcription = self.whisper_transcribe("tempFiles/temp.wav")
-            print("transcription:",transcription)
             # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
 
             def getSentenceOfOpenAIStream(chat_data:dict,transcription:str):
@@ -153,6 +152,7 @@ class Whisper_ChatGPT_TTS(APIView):
                     messages= chat_data + [{"role": "user", "content": transcription}],
                     stream=True
                 )
+                print("transcription:",transcription)
                 acumulatedResponse = ""
                 for item in response_stream:
                     choice = item['choices'][0]
@@ -168,12 +168,12 @@ class Whisper_ChatGPT_TTS(APIView):
             for slicedResponse in getSentenceOfOpenAIStream(chat_data=chat_data,transcription=transcription):
                 print(slicedResponse)
                 response_text = slicedResponse
-                response_audio_data, _ = audioInferer.infer_audio(response_text,42)
+                response_audio_data, _ = audioInferer.infer_audio(response_text,5)
                 print("yielding response slice")
                 yielding_component = response_audio_data.tobytes()
                 yield yielding_component
 
-        response = StreamingHttpResponse(response_generator(), content_type='text/json')
+        response = StreamingHttpResponse(response_generator(), content_type='application/octet-stream')
         return response
 
     def whisper_transcribe(self, audioPath):
@@ -183,3 +183,9 @@ class Whisper_ChatGPT_TTS(APIView):
 
     async def awaitAudioInfer(self,response_text):
         return await audioInferer.infer_audio(response_text)
+
+    def text_cleaner_for_audioInferer(text):
+        banned_chars = [".","…"]
+        for banned_char in banned_chars:
+            text.replace(banned_char,"")
+        return text

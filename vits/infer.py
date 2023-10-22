@@ -13,8 +13,12 @@ def get_text(text, hps):
     return text_norm
 
 class AudioInferencer():
-    def __init__(self,modelPath) -> None:
+    def __init__(self,modelPath,device = None,config = "pretrained_models\configs\config_Einstein.json") -> None:
         self.modelPath = modelPath
+        if device:
+            self.device = device
+        else:
+            self.device = "cuda" if torch.has_cuda else "cpu"
         self.load_model(self.modelPath)
 
     def load_model(self,modelPath):
@@ -25,7 +29,7 @@ class AudioInferencer():
             self.hps.train.segment_size // self.hps.data.hop_length,
             n_speakers=self.hps.data.n_speakers,
             **self.hps.model)
-        _ = self.net_g.eval()
+        self.net_g = self.net_g.to(self.device).eval()
         try:
             _ = utils.load_checkpoint(modelPath, self.net_g, None)
         except:
@@ -38,6 +42,6 @@ class AudioInferencer():
             x_tst = stn_tst.unsqueeze(0)
             x_tst_lengths = torch.LongTensor([stn_tst.size(0)])
             sid = torch.LongTensor([speaker_id])
-            audio = self.net_g.infer(x_tst, x_tst_lengths, sid=sid, noise_scale=.667, noise_scale_w=0.8, length_scale=0.8)[0][0,0].data.cpu().float().numpy()
+            audio = self.net_g.infer(x_tst.to(self.device), x_tst_lengths.to(self.device), sid=sid.to(self.device), noise_scale=.667, noise_scale_w=0.8, length_scale=0.8)[0][0,0].data.cpu().float().numpy()
             sampling_rate = self.hps.data.sampling_rate
         return (audio,sampling_rate)
