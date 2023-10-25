@@ -9,12 +9,14 @@ from faster_whisper import WhisperModel
 device = "cuda" if torch.has_cuda else "cpu"
 #modelをロード
 whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device=device)
-audioInferer = AudioInferencer("G:\マイドライブ\\vits-finetune\Chameba\checkpoints\G_1000.pth",device=device)
+audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth",device=device)
 # audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
 text = "はじめまして！ボクの名前はチャメーバだよー"
 audio_data, sampling_rate = audioInferer.infer_audio(text,11)
 print("model loaded")
 print("cuda available? -> "+device)
+
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'GOSMIC_Z_server.settings')

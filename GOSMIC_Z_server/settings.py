@@ -4,16 +4,18 @@ dotenv.load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ["SECRET_KEY"]
+# SECRET_KEY = os.environ["SECRET_KEY"]
+SECRET_KEY = "SECRET_KEY"
 
-DEBUG = True
+# DEBUG = True
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = [
     "10.10.164.221",
-    "125.102.193.61"
+    "125.102.193.61",
+    "localhost"
     ]
 
 INSTALLED_APPS = [

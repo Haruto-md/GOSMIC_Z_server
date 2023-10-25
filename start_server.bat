@@ -10,7 +10,6 @@ where cmake > nul 2>&1
 where python > nul 2>&1
 if %errorlevel% neq 0 (
     echo CMake or Python not found in Environmental variables.
-    exit /b 1
 )
 
 REM Setting Up Environment
@@ -30,15 +29,11 @@ REM Verify if pretrained model exists
 if not exist %pretrained_models_dir%\*.pth (
     echo Pretrained model not found. Please download the model.
     pause
-    exit /b 1
 ) else (
     echo Pretrained model found.
 )
 
 REM Run the Django server
-python manage.py runsslserver 125.102.193.61:8000
-
-REM Deactivate virtual environment
-deactivate
-
+@REM python manage.py runsslserver 125.102.193.61:8000
+python manage.py runserver localhost:8000
 pause
