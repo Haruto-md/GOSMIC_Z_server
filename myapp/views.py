@@ -112,7 +112,7 @@ class Chat(APIView):
 
         return HttpResponse(response_data,type="text/json")
 
-class GetNew(APIView):
+class ChatGetNew(APIView):
     def post(self,request,format=None):
         parser = MultiPartParser(request.META, request, request.upload_handlers)
         # フォームデータの処理
