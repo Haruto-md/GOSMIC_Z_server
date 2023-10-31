@@ -13,8 +13,19 @@ dotenv.load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.debug = False
 
+import torch
+from vits.infer import AudioInferencer
+from faster_whisper import WhisperModel
+
+device = "cuda" if torch.cuda.is_available() else "cpu"
 #modelをロード
-from manage import audioInferer,whisper_model
+whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device=device)
+audioInferer = AudioInferencer("pretrained_models\ChaCha_G_1000.pth",device=device)
+# audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
+text = "はじめまして！ボクの名前はチャメーバだよー"
+audio_data, sampling_rate = audioInferer.infer_audio(text,11)
+print("model loaded")
+print("cuda available? -> "+device)
 
 def whisper_transcribe(audioPath):
     segments, info = whisper_model.transcribe(audio=audioPath, language="ja", beam_size=3,temperature=0.2)
