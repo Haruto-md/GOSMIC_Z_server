@@ -31,8 +31,7 @@ nvidia-smi
 nvcc -V
 pause
 REM Run the Django server
-@REM python manage.py runsslserver 10.20.202.158:8000
-python manage.py runsslserver localhost:8000
+python manage.py runsslserver 125.102.193.61:8000
 
 REM Deactivate virtual environment
 deactivate

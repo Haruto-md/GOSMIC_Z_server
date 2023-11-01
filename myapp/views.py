@@ -1,6 +1,5 @@
 import numpy as np
 import scipy.io.wavfile as wf
-import time
 from django.http import StreamingHttpResponse,HttpResponse
 from django.http.multipartparser import MultiPartParser
 from rest_framework.views import APIView
@@ -20,10 +19,6 @@ from faster_whisper import WhisperModel
 device = "cuda" if torch.cuda.is_available() else "cpu"
 #modelをロード
 whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device=device)
-audioInferer = AudioInferencer("pretrained_models\Chameba_rev1_G_0_pth.pth",device=device)
-# audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
-text = "はじめまして！ボクの名前はチャメーバだよー"
-audio_data, sampling_rate = audioInferer.infer_audio(text,43)
 print("model loaded")
 print("cuda available? -> "+device)
 
@@ -32,12 +27,10 @@ def whisper_transcribe(audioPath):
     transcription = " ".join([seg.text  for seg in segments])
     return transcription
 def text_cleaner_for_audioInferer(text):
-    banned_chars = [".","…","。"]
+    banned_chars = [".","…","。","：",":"]
     for banned_char in banned_chars:
-        text.replace(banned_char,"")
+        text.replace(banned_char," ")
     return text
-async def awaitAudioInfer(self,response_text):
-    return await audioInferer.infer_audio(response_text)
 
 class SpeechToText(APIView):
     def post(self,request,format=None):
@@ -90,7 +83,7 @@ class Chat(APIView):
             choice = item['choices'][0]
             if choice["finish_reason"] is None:
                 if not "role" in choice["delta"].keys():
-                    acumulatedResponse += choice["delta"]["content"].replace("「", "").replace("」", "")
+                    acumulatedResponse += choice["delta"]["content"].replace("「", "").replace("」", "").replace("\n", " ")
                 if "。" in acumulatedResponse or "、" in acumulatedResponse:
                     print(f"[chat delta]{acumulatedResponse}")
                     resulting_sentences.append(acumulatedResponse)
@@ -149,13 +142,17 @@ class GetNewChat(APIView):
         return HttpResponse(json.dumps(response_josn),content_type="text/json")
 
 class TextToSpeech(APIView):
+    character_model_name = "Chameba"
+    audioInferer = AudioInferencer(f"./pretrained_models/{character_model_name}.pth",device=device)
     def post(self,request,format=None):
         # フォームデータの処理
         text = request.data.get("text")
-        print(f"generate audio on :'{text}'")
+        character = request.data.get("character")
+        if  character is not self.character_model_name:
+            self.character_model_name = character
+            self.audioInferer = AudioInferencer(f"./pretrained_models/{self.character_model_name}.pth",device=device)
         cleaned_text = text_cleaner_for_audioInferer(text)
-        response_audio_data, sampling_rate = audioInferer.infer_audio(cleaned_text,42)
-        print("Audio sample rate:",sampling_rate)
+        response_audio_data, sampling_rate = self.audioInferer.infer_audio(cleaned_text,42)
         response_audio_byte_data = response_audio_data.tobytes()
         return HttpResponse(response_audio_byte_data,content_type="application/octet-stream")
 
