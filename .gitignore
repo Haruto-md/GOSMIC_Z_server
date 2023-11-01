@@ -5,6 +5,7 @@ pretrained_models/
 __pycache__/
 *.py[cod]
 *$py.class
+tempFiles/
 
 # C extensions
 *.so

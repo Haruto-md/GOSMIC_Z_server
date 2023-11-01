@@ -20,10 +20,10 @@ from faster_whisper import WhisperModel
 device = "cuda" if torch.cuda.is_available() else "cpu"
 #modelをロード
 whisper_model = WhisperModel("medium",download_root="pretrained_models",compute_type="int8",device=device)
-audioInferer = AudioInferencer("pretrained_models\ChaCha_G_1000.pth",device=device)
+audioInferer = AudioInferencer("pretrained_models\Chameba_rev1_G_0_pth.pth",device=device)
 # audioInferer = AudioInferencer("pretrained_models\G_4000_42_Einstein.pth")
 text = "はじめまして！ボクの名前はチャメーバだよー"
-audio_data, sampling_rate = audioInferer.infer_audio(text,11)
+audio_data, sampling_rate = audioInferer.infer_audio(text,43)
 print("model loaded")
 print("cuda available? -> "+device)
 
@@ -31,6 +31,13 @@ def whisper_transcribe(audioPath):
     segments, info = whisper_model.transcribe(audio=audioPath, language="ja", beam_size=3,temperature=0.2)
     transcription = " ".join([seg.text  for seg in segments])
     return transcription
+def text_cleaner_for_audioInferer(text):
+    banned_chars = [".","…","。"]
+    for banned_char in banned_chars:
+        text.replace(banned_char,"")
+    return text
+async def awaitAudioInfer(self,response_text):
+    return await audioInferer.infer_audio(response_text)
 
 class SpeechToText(APIView):
     def post(self,request,format=None):
@@ -52,39 +59,30 @@ class SpeechToText(APIView):
         wf.write("tempFiles/temp.wav" ,rate = sampling_rate,data = audio_data)
 
         # 音声データを文字起こしする
-        transcription = self.whisper_transcribe("tempFiles/temp.wav")
+        transcription = whisper_transcribe("tempFiles/temp.wav")
         print("transcription:",transcription)
-        # JSONレスポンスを作成
-        response_data = {"transcription": transcription}
         # JSONレスポンスを返す
-        return HttpResponse(json.loads(response_data))
+        return HttpResponse(transcription)
 
 class Chat(APIView):
     def post(self, request, format=None):
-        parser = MultiPartParser(request.META, request, request.upload_handlers)
-        # フォームデータの処理
-        post, files = parser.parse()
         chat_data = []
-        for key, value in post.items():
+        for key, value in request.data.items():
             if "role" in key:
-                chat_data.append({"role": str(value)})
+                chat_entry = {"role": str(value)}
             elif "content" in key:
-                chat_data[-1]["content"] = str(value)
-            elif "prompt" in key:
-                prompt = value
-            elif "temp_token" in key:
-                temp_token = value
-            else:
-                print("[ERROR] else.")
+                chat_entry["content"] = str(value)
+                chat_data.append(chat_entry)
+        temp_token = request.data.get("temp_token")
 
         # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る処理をそのまま含める
         response_stream = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             temperature=0.7,
-            messages=chat_data + [{"role": "user", "content": prompt}],
+            messages=chat_data,
             stream=True
         )
-        
+        # f"./tempFiles/chat/{temp_token} ToDo
         acumulatedResponse = ""
         os.mkdir(f"./tempFiles/chat/{temp_token}")
         resulting_sentences = []
@@ -94,74 +92,72 @@ class Chat(APIView):
                 if not "role" in choice["delta"].keys():
                     acumulatedResponse += choice["delta"]["content"].replace("「", "").replace("」", "")
                 if "。" in acumulatedResponse or "、" in acumulatedResponse:
+                    print(f"[chat delta]{acumulatedResponse}")
                     resulting_sentences.append(acumulatedResponse)
                     with open(f"./tempFiles/chat/{temp_token}/{len(resulting_sentences)}","w",encoding="utf-8") as f:
                         temp_json_dict = {
                             "response":acumulatedResponse,
                             "response_index":len(resulting_sentences)
                         }
-                        temp_json_data = json.loads(temp_json_dict)
+                        temp_json_data = json.dumps(temp_json_dict)
                         f.write(temp_json_data)
                     acumulatedResponse = ""
             else:
-                print("[Info] Finished Chatting ,for" + choice["finish_reason"])
-                response_data = json.loads({
+                with open(f"./tempFiles/chat/{temp_token}/{len(resulting_sentences)+1}","w",encoding="utf-8") as f:
+                    temp_json_dict = {
+                        "response":"END",
+                        "response_index":-1
+                    }
+                    temp_json_data = json.dumps(temp_json_dict)
+                    f.write(temp_json_data)
+                print("[Info] Finished Chatting ,for " + choice["finish_reason"])
+                response_data = json.dumps({
                     "finish_reason":choice["finish_reason"],
                     "resulting_sentences":" ".join(resulting_sentences)
                 })
 
-        return HttpResponse(response_data,type="text/json")
+        return HttpResponse(response_data,content_type="text/json")
 
-class ChatGetNew(APIView):
+class GetNewChat(APIView):
     def post(self,request,format=None):
-        parser = MultiPartParser(request.META, request, request.upload_handlers)
-        # フォームデータの処理
-        post, files = parser.parse()
-        for key, value in post.items():
-            if key=="temp_token":
-                temp_token = value
-            else:
-                print("[ERROR] else.")
-        
+        temp_token = request.data.get("token")
+
         response_josn = {
             "state":"",
             "content":{
                 "response":"",
-                "response_index":0    
+                "response_index":0
                 }
             }
-        
+
         if not os.path.exists(f"./tempFiles/chat/{temp_token}"):
-            response_josn["state"] = "Failed"
-            response_josn["content"] = "No such token"
-            return HttpResponse(json.loads(response_josn),type="text/json")
-        files = glob.glob(f"./tempFiles/chat/{temp_token}/*")
-        if len(files) == 0:
             response_josn["state"] = "Wait"
-            response_josn["content"] = "Chat not saved yet."
-            return HttpResponse(json.loads(response_josn),type="text/json")
-        newFile = files[0]
+            response_josn["content"]["response"] = "No such token folder"
+            return HttpResponse(json.dumps(response_josn),content_type="text/json")
+        files = glob.glob(f"./tempFiles/chat/{temp_token}/*")
+        sorted_files = sorted(files, key=lambda x: int(x.split("/")[-1].split("\\")[-1]))
+        if len(sorted_files) == 0:
+            response_josn["state"] = "Wait"
+            response_josn["content"]["response"] = "Chat not saved yet."
+            return HttpResponse(json.dumps(response_josn),content_type="text/json")
+        newFile = sorted_files[0]
         with open(newFile,"r",encoding="utf-8") as f:
             chat_delta_json = f.read()
         os.remove(newFile)
         response_josn["state"] = "Success"
-        response_josn["content"] = chat_delta_json
-        return HttpResponse(json.loads(response_josn),type="text/json")
+        response_josn["content"] = json.loads(chat_delta_json)
+        return HttpResponse(json.dumps(response_josn),content_type="text/json")
 
 class TextToSpeech(APIView):
     def post(self,request,format=None):
-        parser = MultiPartParser(request.META, request, request.upload_handlers)
         # フォームデータの処理
-        post, files = parser.parse()
-        for key, value in post.items():
-            if key=="text":
-                text = str(value)
-            else:
-                print("[ERROR] else.")
-        print(f"generate audio file :'{text}'")
-        response_audio_data, _ = audioInferer.infer_audio(text,42)
+        text = request.data.get("text")
+        print(f"generate audio on :'{text}'")
+        cleaned_text = text_cleaner_for_audioInferer(text)
+        response_audio_data, sampling_rate = audioInferer.infer_audio(cleaned_text,42)
+        print("Audio sample rate:",sampling_rate)
         response_audio_byte_data = response_audio_data.tobytes()
-        return HttpResponse(response_audio_byte_data,type="application/octet-stream")
+        return HttpResponse(response_audio_byte_data,content_type="application/octet-stream")
 
 class Whisper_ChatGPT_TTS(APIView):
     def post(self, request, format=None):
@@ -190,7 +186,7 @@ class Whisper_ChatGPT_TTS(APIView):
             wf.write("tempFiles/temp.wav" ,rate = sampling_rate,data = audio_data)
 
             # 音声データを文字起こしする
-            transcription = self.whisper_transcribe("tempFiles/temp.wav")
+            transcription = whisper_transcribe("tempFiles/temp.wav")
             # GPT-3.5 Turboにテキストを送信し、ストリームでレスポンスを受け取る
 
             def getSentenceOfOpenAIStream(chat_data:dict,transcription:str):
@@ -224,17 +220,3 @@ class Whisper_ChatGPT_TTS(APIView):
 
         response = StreamingHttpResponse(response_generator(), content_type='application/octet-stream')
         return response
-
-    def whisper_transcribe(self, audioPath):
-        segments, info = whisper_model.transcribe(audio=audioPath, language="ja", beam_size=3,temperature=0.2)
-        transcription = " ".join([seg.text  for seg in segments])
-        return transcription
-
-    async def awaitAudioInfer(self,response_text):
-        return await audioInferer.infer_audio(response_text)
-
-    def text_cleaner_for_audioInferer(text):
-        banned_chars = [".","…"]
-        for banned_char in banned_chars:
-            text.replace(banned_char,"")
-        return text

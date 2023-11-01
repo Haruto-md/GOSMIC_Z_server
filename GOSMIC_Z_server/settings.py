@@ -14,7 +14,8 @@ SECURE_SSL_REDIRECT = True
 ALLOWED_HOSTS = [
     "10.10.164.221",
     "125.102.193.61",
-    "10.20.202.158"
+    "10.20.202.158",
+    "localhost"
     ]
 
 INSTALLED_APPS = [
