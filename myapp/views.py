@@ -152,7 +152,10 @@ class TextToSpeech(APIView):
             self.character_model_name = character
             self.audioInferer = AudioInferencer(f"./pretrained_models/{self.character_model_name}.pth",device=device)
         cleaned_text = text_cleaner_for_audioInferer(text)
-        response_audio_data, sampling_rate = self.audioInferer.infer_audio(cleaned_text,42)
+        if self.character_model_name == "Rikyu":
+            response_audio_data, sampling_rate = self.audioInferer.infer_audio(text=cleaned_text,speaker_id=42,length_scale=0.6)
+        else:
+            response_audio_data, sampling_rate = self.audioInferer.infer_audio(text=cleaned_text,speaker_id=42,length_scale=1)
         response_audio_byte_data = response_audio_data.tobytes()
         return HttpResponse(response_audio_byte_data,content_type="application/octet-stream")
 

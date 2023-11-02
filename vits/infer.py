@@ -35,13 +35,13 @@ class AudioInferencer():
         except:
             print("[ERROR]model name is different. Can't load checkpoint.")
 
-    def infer_audio(self,text,speaker_id=42):
+    def infer_audio(self,text,speaker_id=42,length_scale=1):
 
         stn_tst = get_text(text, self.hps)
         with torch.no_grad():
             x_tst = stn_tst.unsqueeze(0)
             x_tst_lengths = torch.LongTensor([stn_tst.size(0)])
             sid = torch.LongTensor([speaker_id])
-            audio = self.net_g.infer(x_tst.to(self.device), x_tst_lengths.to(self.device), sid=sid.to(self.device), noise_scale=.667, noise_scale_w=0.8, length_scale=0.8)[0][0,0].data.cpu().float().numpy()
+            audio = self.net_g.infer(x_tst.to(self.device), x_tst_lengths.to(self.device), sid=sid.to(self.device), noise_scale=.667, noise_scale_w=0.8, length_scale=length_scale)[0][0,0].data.cpu().float().numpy()
             sampling_rate = self.hps.data.sampling_rate
         return (audio,sampling_rate)
