@@ -160,6 +160,8 @@ class TextToSpeech(APIView):
         return HttpResponse(response_audio_byte_data,content_type="application/octet-stream")
 
 class Whisper_ChatGPT_TTS(APIView):
+    character_model_name = "Chameba"
+    audioInferer = AudioInferencer(f"./pretrained_models/{character_model_name}.pth",device=device)
     def post(self, request, format=None):
         def response_generator():
             parser = MultiPartParser(request.META, request, request.upload_handlers)
@@ -213,7 +215,7 @@ class Whisper_ChatGPT_TTS(APIView):
             for slicedResponse in getSentenceOfOpenAIStream(chat_data=chat_data,transcription=transcription):
                 print(slicedResponse)
                 response_text = slicedResponse
-                response_audio_data, _ = audioInferer.infer_audio(response_text,5)
+                response_audio_data, _ = self.audioInferer.infer_audio(response_text,5)
                 print("yielding response slice")
                 yielding_component = response_audio_data.tobytes()
                 yield yielding_component
