@@ -154,8 +154,14 @@ class TextToSpeech(APIView):
         cleaned_text = text_cleaner_for_audioInferer(text)
         if self.character_model_name == "Rikyu":
             response_audio_data, sampling_rate = self.audioInferer.infer_audio(text=cleaned_text,speaker_id=42,length_scale=0.6)
-        else:
+        elif self.character_model_name == "Chacha":
+            duration = 0.5
+            response_audio_data = response_audio_data[int(sampling_rate*duration):len(response_audio_data)-1-int(sampling_rate*duration)]
+        elif self.character_model_name == "Chameba":
             response_audio_data, sampling_rate = self.audioInferer.infer_audio(text=cleaned_text,speaker_id=42,length_scale=1)
+        else:
+            _, data = wf.read("tempFiles\\error_no_such_chara.wav")
+            return HttpResponse(data,content_type="application/octet-stream")
         response_audio_byte_data = response_audio_data.tobytes()
         return HttpResponse(response_audio_byte_data,content_type="application/octet-stream")
 
